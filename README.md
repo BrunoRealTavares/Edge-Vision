@@ -16,6 +16,7 @@ Nesta etapa, todos os membros atuam no desenvolvimento técnico e na gestão do 
 ---
 
 ## 🚀 Guia de Configuração (Passo a Passo)
+##SEMPRE QUE COPIAREM UM CÓDIGO E ENVIAREM SE CASO DE ERRO COPIE A MENSAGEM DE ERRO E COLOQUE NO GEMINI E VEJA COMO PROSSEGUIR##
 
 Siga estas etapas para preparar seu ambiente de trabalho no VS Code.
 
