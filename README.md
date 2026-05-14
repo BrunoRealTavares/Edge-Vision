@@ -76,7 +76,52 @@ Bruno:
 git checkout -b feature/relatorios
 ``````
 ### 5. Fluxo de Trabalho (Local -> Nuvem)
-Crie seus arquivos HTML e CSS. Quando TERMINAR  SUA PÁGINA, envie do seu PC para o GitHub:
+## 🎨 Uso Obrigatório do CSS Global (Padrão Visual)
+
+Para garantir que o Edge-Vision tenha um design unificado e profissional, nós criamos o arquivo `css/global.css`. **Ele já contém a fonte oficial (DM Sans) e todas as cores do projeto.** Nenhum desenvolvedor deve inventar ou copiar códigos HEX de cores avulsas. Vocês **devem** usar as variáveis do Global CSS.
+
+### 1. Como importar na sua página:
+Dentro do `<head>` do seu arquivo HTML (na pasta `pages/`), adicione o link para o CSS global *antes* do seu CSS específico:
+```html
+<link rel="stylesheet" href="../css/global.css">
+````
+````html
+<link rel="stylesheet" href="../css/sua-tela.css">
+````
+
+Crie seus arquivos HTML e CSS. 
+
+### Pedro Lucas (Login):
+**pages/login.html
+css/login.css
+js/login.js**
+
+### Eduardo Michel (Início/Dashboard):
+**pages/inicio.html
+css/inicio.css
+js/inicio.js**
+
+### Felipe (Funções Principais):
+**pages/funcoes.html
+css/funcoes.css
+js/funcoes.js**
+
+### Cassio (Controle de Acesso):
+**pages/controle.html
+css/controle.css
+js/controle.js**
+
+### Arthur Pereira (Adicionar Despachos):
+**pages/adicionar.html
+css/adicionar.css
+js/adicionar.js**
+
+### Bruno (Relatórios):
+**pages/relatorios.html
+css/relatorios.css
+js/relatorios.js**
+
+Quando TERMINAR  SUA PÁGINA, envie do seu PC para o GitHub:
 
 ````Bash
 git add .
