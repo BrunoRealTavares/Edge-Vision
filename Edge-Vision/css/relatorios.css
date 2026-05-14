@@ -1,0 +1,349 @@
+/* css/relatorios.css */
+
+/* Layout Principal */
+.app-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Menu Lateral */
+.sidebar {
+    width: 250px;
+    background-color: #1A2234;
+    /* Cor escura fiel ao design */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.logo h2 {
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+}
+
+.menu-item {
+    color: #9CA3AF;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+}
+
+.menu-item.active {
+    background-color: #2563EB;
+    /* Azul primário */
+    color: #FFFFFF;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.status-alert {
+    border: 1px solid #EF4444;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+.status-alert span {
+    color: #EF4444;
+    display: block;
+    font-weight: bold;
+}
+
+.status-alert small {
+    color: #9CA3AF;
+}
+
+/* Conteúdo Principal */
+.main-content {
+    flex-grow: 1;
+    padding: 40px 60px;
+    background-color: #F8FAFC;
+    /* Fundo cinza clarinho */
+    overflow-y: auto;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: right;
+}
+
+/* Seção de Relatórios */
+.relatorios-container {
+    margin-bottom: 40px;
+}
+
+.relatorios-header h1 {
+    font-size: 28px;
+    color: #1E293B;
+    margin-bottom: 8px;
+}
+
+.relatorios-header p {
+    font-size: 16px;
+    color: #64748B;
+    margin-bottom: 30px;
+}
+
+/* Cards de KPI */
+.kpi-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background: #FFFFFF;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    border: 1px solid #F1F5F9;
+}
+
+/* CORREÇÃO: Cores exatas dos fundos dos ícones */
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.card-icon.blue {
+    background-color: #E1EFFE;
+    color: #1C64F2;
+}
+
+.card-icon.purple {
+    background-color: #F3E8FF;
+    color: #9061F9;
+}
+
+.card-icon.green {
+    background-color: #DEF7EC;
+    color: #0E9F6E;
+}
+
+.card-icon.orange {
+    background-color: #FFEDD5;
+    color: #EA580C;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* CORREÇÃO: Os números agora são pretos/cinza muito escuro */
+.card h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #0F172A;
+    font-weight: bold;
+}
+
+.card .trend.up {
+    color: #10B981;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.card .trend.neutral {
+    color: #94A3B8;
+    font-size: 12px;
+}
+
+/* Seção de Filtros */
+.filters-section {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    border: 1px solid #F1F5F9;
+}
+
+.filters-header h3 {
+    font-size: 18px;
+    color: #1E293B;
+    margin-bottom: 24px;
+}
+
+.filters-form-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 16px;
+    margin: 15px 0 30px 0;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    color: #475569;
+}
+
+.action-buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.export-buttons-group {
+    display: flex;
+    gap: 12px;
+}
+
+/* Botões Corrigidos */
+.btn-primary {
+    background-color: #2563EB;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #1D4ED8;
+}
+
+/* CORREÇÃO: O Botão PDF agora é verde */
+.btn-success {
+    background-color: #10B981;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-success:hover {
+    background-color: #059669;
+}
+
+/* CORREÇÃO: O Botão Excel é cinza escuro */
+.btn-dark {
+    background-color: #475569;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-dark:hover {
+    background-color: #334155;
+}
+
+/* Gráfico */
+.chart-section {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    border: 1px solid #F1F5F9;
+}
+
+/* CORREÇÃO: O cabeçalho agora tem a mesma cor escura do menu lateral */
+.chart-header {
+    background: #1A2234;
+    padding: 20px 24px;
+    color: #FFFFFF;
+}
+
+.chart-header h3 {
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.chart-header p {
+    font-size: 13px;
+    color: #94A3B8;
+}
+
+.chart-body {
+    padding: 30px 24px 20px 24px;
+    height: 320px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.chart-visualization {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    height: calc(100% - 40px);
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+.chart-bar {
+    background-color: #2563EB;
+    border-radius: 4px 4px 0 0;
+    width: 100%;
+}
+
+.chart-labels {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.chart-labels span {
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 500;
+}
