@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Monitoramento - Controle de Acesso</title>
+   <link rel="stylesheet" href="/css/controle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="welcome">
+            <h1>Olá!</h1>
+            <p>Bem-vindo ao painel de monitoramento</p>
+        </div>
+        <div class="profile">
+            <div class="profile-info">
+                <strong>Meu perfil</strong>
+                <span>Administrador</span>
+            </div>
+            <div class="profile-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats-grid">
+            <div class="card">
+                <div>
+                    <p>Total de Acessos</p>
+                    <h2 id="total-count">6</h2>
+                </div>
+                <div class="icon-circle blue"><i class="fas fa-clock"></i></div>
+            </div>
+            <div class="card">
+                <div>
+                    <p>Acessos Permitidos</p>
+                    <h2 id="allowed-count" class="text-green">5</h2>
+                </div>
+                <div class="icon-circle green"><i class="fas fa-user-check"></i></div>
+            </div>
+            <div class="card">
+                <div>
+                    <p>Acessos Negados</p>
+                    <h2 id="denied-count" class="text-red">1</h2>
+                </div>
+                <div class="icon-circle red"><i class="fas fa-user-times"></i></div>
+            </div>
+        </section>
+
+        <section class="table-container">
+            <div class="table-header">
+                <h3>Registro de Controle de Acesso</h3>
+                <span>Histórico de entradas e saídas</span>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar por nome ou crachá...">
+            </div>
+
+            <table id="accessTable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Crachá</th>
+                        <th>Horário</th>
+                        <th>Data</th>
+                        <th>Local</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="/js/controle.js"></script>
+</body>
+</html>
+
+
+
