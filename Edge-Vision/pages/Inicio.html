@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EdgeSecurity Dashboard</title>
+  <link rel="stylesheet" href="/Edge-Vision/css/Inicio.css"/>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- TOPO GLOBAL -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        ☰
+      </button>
+      <div class="topbar-logo-mini">
+        <span>IA</span>
+      </div>
+    </div>
+    <div class="topbar-center">
+      <h1>TCC- Zonas de Sombra</h1>
+    </div>
+    <div class="topbar-right">
+
+      <button class="top-icon">
+        <span>◌</span>
+      </button>
+      <button class="top-icon">
+        <span>?</span>
+      </button>
+      <button class="share-btn">
+        Compartilhar
+      </button>
+
+    </div>
+  </header>
+  <!-- LAYOUT -->
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-top">
+
+        <div class="brand">
+          <h2>EdgeSecurity</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+
+          <a href="#" class="nav-item active">
+            <span class="nav-icon">⌂</span>
+            <span>Início</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <span class="nav-icon">⚙</span>
+            <span>Funções principais</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <span class="nav-icon">👥</span>
+            <span>Controle de acesso</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <span class="nav-icon">📄</span>
+            <span>Adicionar despachos</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <span class="nav-icon">🗒</span>
+            <span>Relatórios</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="monitor-alert">
+          <div class="alert-title">
+            ⚠ Status do monitoramento
+          </div>
+          <div class="alert-subtitle">
+            Câmera 3 offline
+          </div>
+        </div>
+
+        <button class="logout-btn">
+          <span>⇢</span>
+          <span>Sair</span>
+        </button>
+
+      </div>
+    </aside>
+
+    <!-- OVERLAY MOBILE -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- CONTEÚDO -->
+    <main class="main-content">
+
+      <!-- HEADER INTERNO -->
+      <section class="welcome-bar">
+        <div class="welcome-text">
+          <h2>Olá!</h2>
+          <p>Bem-vindo ao painel de monitoramento</p>
+        </div>
+        <div class="profile-box">
+          <div class="profile-info">
+            <h4>Meu perfil</h4>
+            <span>Administrador</span>
+          </div>
+          <div class="profile-avatar">
+            A
+          </div>
+          <button class="profile-dropdown">
+            ▼
+          </button>
+        </div>
+      </section>
+      <!-- CONTAINER -->
+      <div class="content-wrapper">
+
+        <!-- CARD CAMERA -->
+        <section class="camera-card">
+
+          <div class="camera-header">
+
+            <div class="camera-title">
+
+              <div class="camera-icon">
+                ☐
+              </div>
+
+              <div>
+                <h3>Câmera Principal</h3>
+                <span>Pátio - Área Externa</span>
+              </div>
+
+            </div>
+
+            <div class="camera-actions">
+
+              <div class="live-badge">
+                ● AO VIVO
+              </div>
+
+              <button class="play-btn">
+                ▶
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="camera-image-wrapper">
+
+            <img
+              src="/Edge-Vision/assets/Gemini_Generated_Image_3asvok3asvok3asv.png"
+              alt="Camera"
+              class="camera-image"
+            />
+
+            <div class="camera-overlay-title">
+              ADVANCED VISION-BASED COLLISION AVOIDANCE | ZONES OF SHADOW MONITORING
+            </div>
+            <div class="camera-log">
+              <div class="log-title">
+                SAFE-ZONE INCIDENT LOG
+              </div>
+              <div class="log-item critical">
+                10:14:22 | ZONE 04 SHADOW | W-015 ↔ F-BYD-102 | CRITICAL ALERT
+              </div>
+              <div class="log-item passive">
+                10:09:55 | ZONE 02 OPEN | W-009 ↔ F-BYD-111 | PASSIVE ALERT
+              </div>
+            </div>
+
+            <div class="timestamp">
+              29/04/2026 - 14:35:22
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- FUNCIONÁRIOS -->
+        <section class="employee-card">
+
+          <div class="employee-header">
+            <h3>Funcionários no expediente</h3>
+            <p>Horários de entrada e saída</p>
+          </div>
+
+          <div class="employee-grid">
+            <div class="employee-item">
+
+              <div class="employee-labels">
+                <span>Horário</span>
+                <span>Data</span>
+              </div>
+
+              <div class="employee-values">
+                <h4>12:15</h4>
+                <h5>W 22/11</h5>
+              </div>
+
+            </div>
+
+            <div class="employee-item">
+              <div class="employee-labels">
+                <span>Horário</span>
+                <span>Data</span>
+              </div>
+
+              <div class="employee-values">
+                <h4>12:15</h4>
+                <h5>W 22/11</h5>
+              </div>
+
+            </div>
+
+            <div class="employee-item">
+              <div class="employee-labels">
+                <span>Horário</span>
+                <span>Data</span>
+              </div>
+
+              <div class="employee-values">
+                <h4>12:15</h4>
+                <h5>W 22/11</h5>
+              </div>
+
+            </div>
+
+            <div class="employee-item">
+
+              <div class="employee-labels">
+                <span>Horário</span>
+                <span>Data</span>
+              </div>
+
+              <div class="employee-values">
+                <h4>12:15</h4>
+                <h5>W 22/11</h5>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="/Edge-Vision/js/Inicio.js"></script>
+
+</body>
+</html>
