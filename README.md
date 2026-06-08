@@ -42,7 +42,6 @@ Para evitar erros do PowerShell, configure o Git Bash:
 O Git precisa saber quem está fazendo as alterações no PC. Rode isso no terminal:
 
 ````Bash
-git config user.name "Seu Nome e Sobrenome"
 
 ````
 `````Bash

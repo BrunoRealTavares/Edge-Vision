@@ -1,57 +1,32 @@
-// Dados simulados baseados na sua imagem
-const accessData = [
-    { nome: "João Silva", cracha: "A-1234", horario: "08:15", data: "29/04/2026", local: "Portão Principal", status: "Permitido" },
-    { nome: "Maria Santos", cracha: "A-1235", horario: "08:20", data: "29/04/2026", local: "Portão Principal", status: "Permitido" },
-    { nome: "Pedro Costa", cracha: "A-1236", horario: "08:25", data: "29/04/2026", local: "Portão Secundário", status: "Permitido" },
-    { nome: "Usuário Desconhecido", cracha: "N/A", horario: "08:30", data: "29/04/2026", local: "Portão Principal", status: "Negado" },
-    { nome: "Ana Oliveira", cracha: "A-1237", horario: "08:35", data: "29/04/2026", local: "Portão Principal", status: "Permitido" },
-    { nome: "Carlos Mendes", cracha: "A-1238", horario: "09:00", data: "29/04/2026", local: "Portão Secundário", status: "Permitido" }
-];
-
-const tableBody = document.getElementById('tableBody');
-const searchInput = document.getElementById('searchInput');
-
-// Função para renderizar a tabela
-function renderTable(data) {
-    tableBody.innerHTML = '';
+// Garante que o script só rode depois que a página HTML carregar por completo
+document.addEventListener('DOMContentLoaded', () => {
     
-    data.forEach(item => {
-        const row = `
-            <tr>
-                <td>${item.nome}</td>
-                <td>${item.cracha}</td>
-                <td>${item.horario}</td>
-                <td>${item.data}</td>
-                <td>${item.local}</td>
-                <td><span class="status-pill ${item.status.toLowerCase()}">${item.status}</span></td>
-            </tr>
-        `;
-        tableBody.innerHTML += row;
+    // Captura os elementos necessários do HTML através dos IDs criados
+    const inputBusca = document.getElementById('inputBusca');
+    const tabela = document.getElementById('tabelaAcessos');
+    
+    // Obtém todas as linhas (tr) de dentro do corpo (tbody) da tabela
+    const linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+    // Adiciona o evento de monitoramento ao digitar no input de busca
+    inputBusca.addEventListener('keyup', function() {
+        // Converte o termo pesquisado para letras minúsculas (evita problemas com maiúsculas/minúsculas)
+        const termoBusca = inputBusca.value.toLowerCase();
+
+        // Loop que passa por cada linha da tabela
+        for (let i = 0; i < linhas.length; i++) {
+            const linha = linhas[i];
+            
+            // Pega o conteúdo da primeira coluna [0] (Nome) e segunda coluna [1] (Crachá)
+            const colunaNome = linha.getElementsByTagName('td')[0].textContent.toLowerCase();
+            const colunaCracha = linha.getElementsByTagName('td')[1].textContent.toLowerCase();
+
+            // Verifica se o termo digitado existe dentro da string do Nome OU do Crachá
+            if (colunaNome.includes(termoBusca) || colunaCracha.includes(termoBusca)) {
+                linha.style.display = ""; // Se encontrar algo, mantém a linha visível
+            } else {
+                linha.style.display = "none"; // Se não encontrar, esconde a linha do usuário
+            }
+        }
     });
-
-    updateCounters(data);
-}
-
-// Função para atualizar os cards de estatísticas baseados no que está visível
-function updateCounters(data) {
-    const total = data.length;
-    const allowed = data.filter(i => i.status === "Permitido").length;
-    const denied = data.filter(i => i.status === "Negado").length;
-
-    document.getElementById('total-count').innerText = total;
-    document.getElementById('allowed-count').innerText = allowed;
-    document.getElementById('denied-count').innerText = denied;
-}
-
-// Evento de busca/filtro
-searchInput.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
-    const filteredData = accessData.filter(item => 
-        item.nome.toLowerCase().includes(term) || 
-        item.cracha.toLowerCase().includes(term)
-    );
-    renderTable(filteredData);
 });
-
-// Inicialização
-renderTable(accessData);

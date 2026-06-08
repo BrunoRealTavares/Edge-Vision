@@ -1,86 +1,197 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Monitoramento - Controle de Acesso</title>
-   <link rel="stylesheet" href="/css/controle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>EdgeSecurity - Controle de Acesso</title>
+    <link rel="stylesheet" href="/Edge-Vision/css/controle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   
+  
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="welcome">
-            <h1>Olá!</h1>
-            <p>Bem-vindo ao painel de monitoramento</p>
-        </div>
-        <div class="profile">
-            <div class="profile-info">
-                <strong>Meu perfil</strong>
-                <span>Administrador</span>
-            </div>
-            <div class="profile-icon">
-                <i class="fas fa-user"></i>
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
-        <section class="stats-grid">
-            <div class="card">
-                <div>
-                    <p>Total de Acessos</p>
-                    <h2 id="total-count">6</h2>
-                </div>
-                <div class="icon-circle blue"><i class="fas fa-clock"></i></div>
-            </div>
-            <div class="card">
-                <div>
-                    <p>Acessos Permitidos</p>
-                    <h2 id="allowed-count" class="text-green">5</h2>
-                </div>
-                <div class="icon-circle green"><i class="fas fa-user-check"></i></div>
-            </div>
-            <div class="card">
-                <div>
-                    <p>Acessos Negados</p>
-                    <h2 id="denied-count" class="text-red">1</h2>
-                </div>
-                <div class="icon-circle red"><i class="fas fa-user-times"></i></div>
-            </div>
-        </section>
-
-        <section class="table-container">
-            <div class="table-header">
-                <h3>Registro de Controle de Acesso</h3>
-                <span>Histórico de entradas e saídas</span>
+    <div class="dashboard-container">
+        
+        <!-- SIDEBAR DE NAVEGAÇÃO -->
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>Edge<span>Security</span></h2>
             </div>
             
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Buscar por nome ou crachá...">
+            <nav class="menu">
+                <a href="#" class="menu-item"><i data-lucide="home"></i> Início</a>
+                <a href="#" class="menu-item"><i data-lucide="trending-up"></i> Analytics</a>
+                <a href="#" class="menu-item"><i data-lucide="sliders"></i> Funções principais</a>
+                <a href="#" class="menu-item active"><i data-lucide="users"></i> Controle de acesso</a>
+                <a href="#" class="menu-item"><i data-lucide="file-text"></i> Adicionar despachos</a>
+                <a href="#" class="menu-item"><i data-lucide="pie-chart"></i> Relatórios</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="alert-box">
+                    <div class="alert-title">
+                        <i data-lucide="alert-triangle"></i> Status do monitoramento
+                    </div>
+                    <p>Câmera 3 offline</p>
+                </div>
+                <a href="#" class="logout-btn"><i data-lucide="log-out"></i> Sair</a>
             </div>
+        </aside>
 
-            <table id="accessTable">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Crachá</th>
-                        <th>Horário</th>
-                        <th>Data</th>
-                        <th>Local</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    </tbody>
-            </table>
-        </section>
-    </main>
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- HEADER SUPERIOR -->
+            <header class="header">
+                <div class="welcome">
+                    <h1>Olá!</h1>
+                    <p>Bem-vindo ao painel de monitoramento</p>
+                </div>
+                <div class="profile-area">
+                    <div class="profile-info">
+                        <span class="profile-name">Meu perfil</span>
+                        <span class="profile-role">Administrador</span>
+                    </div>
+                    <div class="profile-avatar">
+                        <i data-lucide="user"></i>
+                    </div>
+                    <i data-lucide="chevron-down" class="chevron"></i>
+                </div>
+            </header>
 
-    <script src="/js/controle.js"></script>
+            <!-- CARDS DE MÉTRICAS -->
+            <section class="cards-grid">
+                <div class="card">
+                    <div class="card-info">
+                        <p class="card-title">Total de Acessos</p>
+                        <p class="card-value">6</p>
+                    </div>
+                    <div class="card-icon blue">
+                        <i data-lucide="clock"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-info">
+                        <p class="card-title">Acessos Permitidos</p>
+                        <p class="card-value success-color">5</p>
+                    </div>
+                    <div class="card-icon green">
+                        <i data-lucide="user-check"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-info">
+                        <p class="card-title">Acessos Negados</p>
+                        <p class="card-value danger-color">1</p>
+                    </div>
+                    <div class="card-icon red">
+                        <i data-lucide="user-x"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TABELA DE REGISTROS -->
+            <section class="table-container">
+                <div class="table-header">
+                    <h3>Registro de Controle de Acesso</h3>
+                    <p>Histórico de entradas e saídas</p>
+                </div>
+
+                <!-- Barra de Busca com ID para o JS -->
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="inputBusca" placeholder="Buscar por nome ou crachá...">
+                </div>
+
+                <!-- Tabela com ID para o JS -->
+                <div class="table-responsive">
+                    <table id="tabelaAcessos">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Crachá</th>
+                                <th>Horário</th>
+                                <th>Data</th>
+                                <th>Local</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>João Silva</td>
+                                <td>A-1234</td>
+                                <td>08:15</td>
+                                <td>29/04/2026</td>
+                                <td>Portão Principal</td>
+                                <td><span class="badge badge-success">Permitido</span></td>
+                            </tr>
+                            <tr>
+                                <td>Maria Santos</td>
+                                <td>A-1235</td>
+                                <td>08:20</td>
+                                <td>29/04/2026</td>
+                                <td>Portão Principal</td>
+                                <td><span class="badge badge-success">Permitido</span></td>
+                            </tr>
+                            <tr>
+                                <td>Pedro Costa</td>
+                                <td>A-1236</td>
+                                <td>08:25</td>
+                                <td>29/04/2026</td>
+                                <td>Portão Secundário</td>
+                                <td><span class="badge badge-success">Permitido</span></td>
+                            </tr>
+                            <tr>
+                                <td>Usuário Desconhecido</td>
+                                <td>N/A</td>
+                                <td>08:30</td>
+                                <td>29/04/2026</td>
+                                <td>Portão Principal</td>
+                                <td><span class="badge badge-danger">Negado</span></td>
+                            </tr>
+                            <tr>
+                                <td>Ana Oliveira</td>
+                                <td>A-1237</td>
+                                <td>08:35</td>
+                                <td>29/04/2026</td>
+                                <td>Portão Principal</td>
+                                <td><span class="badge badge-success">Permitido</span></td>
+                            </tr>
+                            <tr>
+                                <td>Carlos Mendes</td>
+                                <td>A-1238</td>
+                                <td>09:00</td>
+                                <td>29/04/2026</td>
+                                <td>Portão Secundário</td>
+                                <td><span class="badge badge-success">Permitido</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Botão flutuante de ajuda -->
+    <div class="help-floating-btn">?</div>
+
+
+    <!-- Link para o arquivo JavaScript -->
+    <script src="/Edge-Vision/js/controle.js"></script>
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 </body>
 </html>
-
-
-
