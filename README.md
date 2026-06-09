@@ -133,3 +133,98 @@ git commit -m "Explique o que você fez"
 ````Bash
 git push origin feature/nome-da-sua-branch
 ````
+
+
+##HTML
+<!-- COPIAR A PARTIR DAQUI PARA COLOCAR NO TOPO DO <main> -->
+<header class="topbar d-flex justify-content-between align-items-center" style="padding: 1.5rem 2rem; border-bottom: 1px solid #eaeef3; background-color: #ffffff;">
+    <div class="user-welcome">
+        <h1 class="fw-bold text-dark mb-1" style="font-size: 24px; margin: 0;">Olá!</h1>
+        <p class="text-secondary mb-0 small" style="font-size: 14px;">Bem-vindo ao painel de monitoramento</p>
+    </div>
+
+    <div class="user-profile d-flex align-items-center">
+        <div class="info text-end me-3">
+            <span class="name d-block fw-bold text-dark" style="font-size: 13px; line-height: 1.2;">Meu perfil</span>
+            <small class="role text-muted d-block" style="font-size: 11px;">Administrador</small>
+        </div>
+        <div class="avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+            style="width: 38px; height: 38px; background-color: #0d6efd;">
+            <i class="bi bi-person" style="font-size: 18px;"></i>
+        </div>
+        <i class="bi bi-chevron-down text-secondary ms-2" style="font-size: 11px;"></i>
+    </div>
+</header>
+<!-- FIM DO BLOCO DA TOPBAR -->
+
+##CSS
+
+/* --- BLOCO DA TOPBAR PARA COMPARTILHAR --- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #eaeef3;
+    min-height: 70px;
+}
+
+.topbar .user-welcome h1 {
+    font-size: 24px;
+    color: #1e293b;
+    margin: 0;
+}
+
+.topbar .user-welcome p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+}
+
+.topbar .user-profile {
+    cursor: pointer;
+    user-select: none;
+}
+
+.topbar .user-profile .info .name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.topbar .user-profile .info .role {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.topbar .user-profile .avatar {
+    width: 38px;
+    height: 38px;
+    background-color: #0d6efd;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.topbar .user-profile:hover .avatar {
+    background-color: #0b5ed7; /* Efeito de hover discreto no avatar */
+}
+
+##Javascript
+
+// --- LOGICA DA TOPBAR PARA COMPARTILHAR ---
+document.addEventListener("DOMContentLoaded", () => {
+    const userProfile = document.querySelector(".user-profile");
+
+    if (userProfile) {
+        userProfile.addEventListener("click", () => {
+            // Aqui entra a lógica caso queiram abrir um menu dropdown de perfil no futuro
+            console.log("Perfil do administrador clicado!");
+        });
+    }
+});
+
