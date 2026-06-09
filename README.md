@@ -125,7 +125,6 @@ js/relatorios.js**
 Quando TERMINAR  SUA PÁGINA, envie do seu PC para o GitHub:
 
 ````Bash
-git add .
 ````
 ````Bash
 git commit -m "Explique o que você fez"
