@@ -8,28 +8,6 @@
     <link rel="stylesheet" href="/Edge-Vision/css/adicionar.css">
 </head>
 <body>
-
-    <aside class="sidebar" id="sidebar">
-        <div class="logo">
-            <i class="fa fa-shield-alt"></i> EdgeSecurity
-        </div>
-        <ul class="menu">
-            <li><i class="fa fa-home"></i> Início</li>
-            <li><i class="fa fa-chart-bar"></i> Analytics</li>
-            <li><i class="fa fa-cogs"></i> Funções principais</li>
-            <li><i class="fa fa-user-shield"></i> Controle de acesso</li>
-            <li class="active"><i class="fa fa-file-alt"></i> Adicionar despachos</li>
-            <li><i class="fa fa-files"></i> Relatórios</li>
-        </ul>
-        <div class="alert-status">
-            <i class="fa fa-exclamation-triangle"></i> Status do monitoramento <br> 
-            <span>Câmera 3 offline</span>
-        </div>
-        <div class="logout">
-            <i class="fa fa-sign-out-alt"></i> Sair
-        </div>
-    </aside>
-
     <main class="main" id="main">
         
         <header>
@@ -111,6 +89,17 @@
         </div>
     </main>
 
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
     <script src="/Edge-Vision/js/adicionar.js"></script>
 </body>
 </html>
