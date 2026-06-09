@@ -1,0 +1,293 @@
+/* Layout Base com Sidebar Fixa */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Customização Avançada da Sidebar (Estilo image_22a2c5.png) */
+.sidebar {
+    width: 260px;
+    background-color: #1e293b;
+    /* Tom escuro azulado premium idêntico ao modelo */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    /* Ajuste nas margens internas */
+    position: fixed;
+    height: 100vh;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Customização dos Links do Menu */
+.sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Espaço perfeito entre ícone e texto */
+    padding: 12px 16px;
+    color: #94a3b8;
+    /* Cor cinza fosca para itens normais */
+    text-decoration: none;
+    /* Remove o sublinhado azul horroroso */
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    /* Cantos arredondados elegantes */
+    transition: all 0.2s ease;
+}
+
+/* Tamanho fixo e alinhamento dos ícones do menu */
+.sidebar .menu-item i {
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efeito Hover (Passar o mouse nos itens cinzas) */
+.sidebar .menu-item:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #f8fafc;
+}
+
+/* O ITEM ATIVO: Destacado em azul royal com texto branco (image_22a2c5.png) */
+.sidebar .menu-item.active {
+    background-color: #2563eb !important;
+    /* Azul marcante do print */
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Item de Sair Customizado */
+.sidebar .menu-item.logout {
+    color: #f1f5f9;
+    margin-top: 8px;
+}
+
+.sidebar .menu-item.logout:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.main-content {
+    margin-left: 260px;
+    /* Desloca o conteúdo para não cobrir a sidebar */
+    flex: 1;
+    background-color: #f4f6f9;
+    /* Fundo cinza claro que dá o contraste flutuante */
+    padding: 30px 40px;
+}
+
+.topbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeef3;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+
+    /* AJUSTE AQUI: Aumentamos o distanciamento interno */
+    /* 20px em cima/baixo e 40px nas laterais para afastar das bordas */
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Remove estilos redundantes que possam quebrar o perfil */
+.user-profile {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.topbar h1 {
+    font-size: 28px;
+    color: #0f172a;
+}
+
+.user-profile {
+    padding: 6px 16px;
+    height: 52px;
+}
+
+.user-profile .name {
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.user-profile .role {
+    font-size: 11px;
+}
+
+.user-profile .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+}
+
+.user-profile .chevron {
+    font-size: 9px;
+    transform: scaleY(0.8);
+}
+
+/* Remove o bloco branco único, permitindo a separação tripla */
+.relatorios-container {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Garante os cantos arredondados suaves padrão do layout moderno */
+.rounded-3 {
+    border-radius: 12px !important;
+}
+
+.relatorios-header h1 {
+    font-size: 32px;
+}
+
+/* Ícones dos Cards KPI */
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    font-size: 18px;
+}
+
+.card-icon.blue {
+    background-color: #e0f2fe;
+}
+
+.card-icon.purple {
+    background-color: #f3e8ff;
+}
+
+.card-icon.green {
+    background-color: #dcfce7;
+}
+
+.card-icon.orange {
+    background-color: #ffedd5;
+}
+
+.small-title {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* 1. Garante que a coluna seja clicável */
+.chart-col {
+    cursor: pointer;
+    position: relative;
+}
+
+/* 2. Transforma o texto em um balãozinho preto e esconde por padrão */
+.chart-tooltip {
+    position: absolute;
+    bottom: 100%;
+    /* Força a ficar acima da barra azul */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    /* Começa um pouco mais baixo */
+    background-color: #1e293b;
+    /* Fundo escuro elegante */
+    color: #ffffff;
+    /* Texto branco */
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    /* Esconde o balão antes do clique */
+    opacity: 0;
+    pointer-events: none;
+
+    /* Transição suave para surgir */
+    transition: all 0.2s ease-in-out;
+    z-index: 20;
+}
+
+/* 3. Pequena setinha apontando para baixo no balão */
+.chart-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1e293b transparent transparent transparent;
+}
+
+/* 1. Garante que a coluna seja clicável */
+.chart-col {
+    cursor: pointer;
+    position: relative;
+}
+
+/* 2. Transforma o texto em um balãozinho preto e esconde por padrão */
+.chart-tooltip {
+    position: absolute;
+    bottom: 100%;
+    /* Força a ficar acima da barra azul */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    /* Começa um pouco mais baixo */
+    background-color: #1e293b;
+    /* Fundo escuro elegante */
+    color: #ffffff;
+    /* Texto branco */
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    /* Esconde o balão antes do clique */
+    opacity: 0;
+    pointer-events: none;
+
+    /* Transição suave para surgir */
+    transition: all 0.2s ease-in-out;
+    z-index: 20;
+}
+
+/* 3. Pequena setinha apontando para baixo no balão */
+.chart-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1e293b transparent transparent transparent;
+}
+
+/* 4. A MÁGICA: Quando a coluna for clicada e receber a classe .active, o balão aparece */
+.chart-col.active .chart-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    /* Sobe suavemente para a posição certa */
+}
+
+/* 5. Efeito visual rápido para indicar que a barra é clicável */
+.chart-col:hover .chart-bar {
+    filter: brightness(0.9);
+}
