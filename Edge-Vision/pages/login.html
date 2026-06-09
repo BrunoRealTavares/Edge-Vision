@@ -1,47 +1,112 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EdgeSecurity - Página de Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>EdgeSecurity</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="/Edge-Vision/css/login.css">
 </head>
 <body>
 
-    <div class="page-container">
-        
-        <div class="left-panel">
-            <div class="logo-wrapper">
-                <h1 class="brand-name">EdgeSecurity</h1>
+
+    <div class="container">
+       
+        <div class="brand-section">
+            <div class="logo-container">
+                <div class="logo-brackets"></div>
+                <div class="logo-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+            </div>
+           
+            <h1 class="brand-title">Edge<span>Security</span></h1>
+           
+            <div class="status-badge">
+                <i class="fa-solid fa-bolt"></i> SISTEMA ONLINE
+            </div>
+
+
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fa-solid fa-shield-virus"></i>
+                    <span>Proteção AI</span>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-fingerprint"></i>
+                    <span>Biometria</span>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-key"></i>
+                    <span>Criptografia</span>
+                </div>
             </div>
         </div>
 
-        <div class="right-panel">
-            <div class="login-card">
-                <p class="card-instruction">Informe suas credenciais para acessar a aplicação</p>
-                
-                <form id="loginForm">
+
+        <div class="login-section">
+            <div class="login-panel">
+                <div class="panel-header">
+                    <div class="header-titles">
+                        <h2>Acesso Seguro</h2>
+                        <p>Autenticação multifator habilitada</p>
+                    </div>
+                </div>
+
+
+                <form action="Inicio.html" method="GET">
                     <div class="input-group">
-                        <i class="fa-regular fa-user input-icon"></i>
-                        <input type="text" id="username" placeholder="Login" required autocomplete="username">
+                        <label class="input-label">
+                            <i class="fa-regular fa-user"></i> Identificação do Usuário
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="text" placeholder="Digite seu ID ou e-mail" required>
+                        </div>
                     </div>
 
+
                     <div class="input-group">
-                        <i class="fa-regular fa-lock input-icon"></i>
-                        <input type="password" id="password" placeholder="Senha" required autocomplete="current-password">
-                        <i class="fa-regular fa-eye toggle-password" id="togglePasswordIcon"></i>
+                        <label class="input-label">
+                            <i class="fa-solid fa-lock"></i> Senha de Acesso
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="password" placeholder="Digite sua senha" required>
+                            <i class="fa-regular fa-eye eye-icon"></i>
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn-submit">Entrar</button>
+
+                    <div class="panel-options">
+                        <label class="checkbox-group">
+                            <input type="checkbox"> Manter conectado
+                        </label>
+                        <a href="#" class="forgot-link">
+                            <i class="fa-solid fa-arrow-rotate-right"></i> Recuperar acesso
+                        </a>
+                    </div>
+
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fa-solid fa-shield"></i> Iniciar sessão
+                    </button>
                 </form>
 
-                <a href="#" class="problems-link">Problemas?</a>
+
+                <div class="panel-footer">
+                    <a href="#" class="help-link">Ajuda</a>
+                </div>
+            </div>
+
+
+            <div class="system-footer">
+                EdgeSecurity © 2026 | Todos os acessos são monitorados<br>
             </div>
         </div>
+
 
     </div>
 
-    <script src="script.js"></script>
+
 </body>
 </html>

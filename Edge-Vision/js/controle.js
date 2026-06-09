@@ -1,57 +1,67 @@
-// Dados simulados baseados na sua imagem
 const accessData = [
-    { nome: "João Silva", cracha: "A-1234", horario: "08:15", data: "29/04/2026", local: "Portão Principal", status: "Permitido" },
-    { nome: "Maria Santos", cracha: "A-1235", horario: "08:20", data: "29/04/2026", local: "Portão Principal", status: "Permitido" },
-    { nome: "Pedro Costa", cracha: "A-1236", horario: "08:25", data: "29/04/2026", local: "Portão Secundário", status: "Permitido" },
-    { nome: "Usuário Desconhecido", cracha: "N/A", horario: "08:30", data: "29/04/2026", local: "Portão Principal", status: "Negado" },
-    { nome: "Ana Oliveira", cracha: "A-1237", horario: "08:35", data: "29/04/2026", local: "Portão Principal", status: "Permitido" },
-    { nome: "Carlos Mendes", cracha: "A-1238", horario: "09:00", data: "29/04/2026", local: "Portão Secundário", status: "Permitido" }
+    ["João Silva","A-1234","08:15","29/04/2026","Portão Principal","Permitido"],
+    ["Maria Santos","A-1235","08:20","29/04/2026","Portão Principal","Permitido"],
+    ["Pedro Costa","A-1236","08:25","29/04/2026","Portão Secundário","Permitido"],
+    ["Usuário Desconhecido","N/A","08:30","29/04/2026","Portão Principal","Negado"],
+    ["Ana Oliveira","A-1237","08:35","29/04/2026","Portão Principal","Permitido"],
+    ["Carlos Mendes","A-1238","09:00","29/04/2026","Portão Secundário","Permitido"]
 ];
 
-const tableBody = document.getElementById('tableBody');
-const searchInput = document.getElementById('searchInput');
+const tableBody = document.getElementById("tableBody");
+const searchInput = document.getElementById("searchInput");
 
-// Função para renderizar a tabela
 function renderTable(data) {
-    tableBody.innerHTML = '';
-    
+
+    tableBody.innerHTML = "";
+
     data.forEach(item => {
-        const row = `
+
+        tableBody.innerHTML += `
             <tr>
-                <td>${item.nome}</td>
-                <td>${item.cracha}</td>
-                <td>${item.horario}</td>
-                <td>${item.data}</td>
-                <td>${item.local}</td>
-                <td><span class="status-pill ${item.status.toLowerCase()}">${item.status}</span></td>
+                <td>${item[0]}</td>
+                <td>${item[1]}</td>
+                <td>${item[2]}</td>
+                <td>${item[3]}</td>
+                <td>${item[4]}</td>
+                <td>
+                    <span class="status ${item[5].toLowerCase()}">
+                        ${item[5]}
+                    </span>
+                </td>
             </tr>
         `;
-        tableBody.innerHTML += row;
     });
 
-    updateCounters(data);
+    document.getElementById("total-count").textContent = data.length;
+
+    document.getElementById("allowed-count").textContent =
+        data.filter(i => i[5] === "Permitido").length;
+
+    document.getElementById("denied-count").textContent =
+        data.filter(i => i[5] === "Negado").length;
 }
 
-// Função para atualizar os cards de estatísticas baseados no que está visível
-function updateCounters(data) {
-    const total = data.length;
-    const allowed = data.filter(i => i.status === "Permitido").length;
-    const denied = data.filter(i => i.status === "Negado").length;
+searchInput.addEventListener("input", e => {
 
-    document.getElementById('total-count').innerText = total;
-    document.getElementById('allowed-count').innerText = allowed;
-    document.getElementById('denied-count').innerText = denied;
-}
+    const termo = e.target.value.toLowerCase();
 
-// Evento de busca/filtro
-searchInput.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
-    const filteredData = accessData.filter(item => 
-        item.nome.toLowerCase().includes(term) || 
-        item.cracha.toLowerCase().includes(term)
+    const filtrados = accessData.filter(item =>
+        item[0].toLowerCase().includes(termo) ||
+        item[1].toLowerCase().includes(termo)
     );
-    renderTable(filteredData);
+
+    renderTable(filtrados);
 });
 
-// Inicialização
+function lerPagina() {
+    const texto = document.body.innerText;
+
+    const fala = new SpeechSynthesisUtterance(texto);
+
+    fala.lang = "pt-BR";
+
+    speechSynthesis.speak(fala);
+}
+
+
 renderTable(accessData);
