@@ -1,44 +1,25 @@
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const sidebar = document.getElementById('sidebar');
-const sidebarOverlay = document.getElementById('sidebarOverlay');
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
 
-mobileMenuBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
-  sidebarOverlay.classList.toggle('active');
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', (e) => {
+            sidebar.classList.toggle('active');
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && !sidebar.contains(e.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+    }
+
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            menuItems.forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
 });
-
-sidebarOverlay.addEventListener('click', () => {
-  sidebar.classList.remove('active');
-  sidebarOverlay.classList.remove('active');
-});
-
-/* Hover interativo nos cards */
-const employeeItems = document.querySelectorAll('.employee-item');
-
-employeeItems.forEach(item => {
-
-  item.addEventListener('mouseenter', () => {
-    item.style.transform = 'translateY(-4px)';
-    item.style.transition = '0.3s ease';
-    item.style.boxShadow = '0 10px 25px rgba(15,23,42,0.08)';
-  });
-
-  item.addEventListener('mouseleave', () => {
-    item.style.transform = 'translateY(0px)';
-    item.style.boxShadow = 'none';
-  });
-
-});
-
-/* Simulação de atualização ao vivo */
-const liveBadge = document.querySelector('.live-badge');
-
-setInterval(() => {
-
-  liveBadge.style.opacity = '0.6';
-
-  setTimeout(() => {
-    liveBadge.style.opacity = '1';
-  }, 500);
-
-}, 1000);
