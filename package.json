@@ -1,0 +1,24 @@
+{
+  "name": "edge-vision",
+  "version": "1.0.0",
+  "description": "> **Repositório Oficial do Projeto de Monitoramento e Prevenção de Acidentes.**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoRealTavares/Edge-Vision.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BrunoRealTavares/Edge-Vision/issues"
+  },
+  "homepage": "https://github.com/BrunoRealTavares/Edge-Vision#readme",
+  "devDependencies": {
+    "cypress": "^15.16.0"
+  }
+}
