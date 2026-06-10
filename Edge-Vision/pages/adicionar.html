@@ -4,46 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EdgeSecurity - Dashboard</title>
-    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="/Edge-Vision/css/adicionar.css">
 </head>
 <body>
-
-    <aside class="sidebar" id="sidebar">
-        <div class="logo">
-            <i class="fa fa-shield-alt"></i> EdgeSecurity
-        </div>
-        <ul class="menu">
-            <li><i class="fa fa-home"></i> Início</li>
-            <li><i class="fa fa-cogs"></i> Funções principais</li>
-            <li><i class="fa fa-user-shield"></i> Controle de acesso</li>
-            <li class="active"><i class="fa fa-file-alt"></i> Adicionar despachos</li>
-            <li><i class="fa fa-chart-bar"></i> Relatórios</li>
-        </ul>
-        <div class="status">
-            ⚠ Status do monitoramento <br> <strong>Câmera 3 offline</strong>
-        </div>
-        <div class="logout">
-            <i class="fa fa-sign-out-alt"></i> Sair
-        </div>
-    </aside>
-
     <main class="main" id="main">
+        
         <header>
             <div class="header-left">
-                <button class="menu-btn" onclick="toggleMenu()">
+                <button class="menu-btn" id="menuBtn">
                     <i class="fa fa-bars"></i>
                 </button>
-                <div>
+                <div class="welcome-text">
                     <h2>Olá!</h2>
                     <p>Bem-vindo ao painel de monitoramento</p>
                 </div>
             </div>
-            <div class="profile">
-                <i class="fa fa-user-circle" style="font-size: 1.5rem; color: #0056b3;"></i> 
-                <span>Meu perfil</span>
+            
+            <div class="profile user-profile">
+                <div class="profile-text">
+                    <span class="user-name">Meu perfil</span>
+                    <span class="user-role">Administrador</span>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-user"></i>
+                </div>
+                <i class="fa fa-chevron-down chevron"></i>
             </div>
         </header>
 
@@ -57,36 +43,63 @@
             </button>
         </div>
 
-        <div class="card">
-            <h3>Despachos Recentes</h3>
-            <div id="lista">
+        <div class="list-section">
+            <div class="list-header">
+                <h3>Despachos Recentes</h3>
+                <p>Últimos registros de movimentação</p>
+            </div>
+            
+            <div class="list-container" id="lista">
                 <div class="item">
                     <div>
-                        <strong>João Silva</strong> <span class="tag">Entrada</span> <br>
-                        <small>29/04/2026 - Chegada pontual</small>
+                        <div class="item-title">
+                            <strong>João Silva</strong> 
+                            <span class="tag tag-entrada">Entrada</span>
+                        </div>
+                        <small><i class="fa fa-calendar"></i> 29/04/2026</small>
+                        <p class="desc">Chegada pontual</p>
                     </div>
-                    <span class="status aprovado">Aprovado</span>
+                    <span class="badge-status status-aprovado">Aprovado</span>
                 </div>
                 
                 <div class="item">
                     <div>
-                        <strong>Maria Santos</strong> <span class="tag saida">Saída</span> <br>
-                        <small>29/04/2026 - Término do expediente</small>
+                        <div class="item-title">
+                            <strong>Maria Santos</strong> 
+                            <span class="tag tag-saida">Saída</span>
+                        </div>
+                        <small><i class="fa fa-calendar"></i> 29/04/2026</small>
+                        <p class="desc">Término do expediente</p>
                     </div>
-                    <span class="status aprovado">Aprovado</span>
+                    <span class="badge-status status-aprovado">Aprovado</span>
                 </div>
                 
                 <div class="item">
                     <div>
-                        <strong>Pedro Costa</strong> <span class="tag">Entrada</span> <br>
-                        <small>29/04/2026 - Atraso justificado</small>
+                        <div class="item-title">
+                            <strong>Pedro Costa</strong> 
+                            <span class="tag tag-entrada">Entrada</span>
+                        </div>
+                        <small><i class="fa fa-calendar"></i> 29/04/2026</small>
+                        <p class="desc">Atraso justificado</p>
                     </div>
-                    <span class="status pendente">Pendente</span>
+                    <span class="badge-status status-pendente">Pendente</span>
                 </div>
             </div>
         </div>
     </main>
 
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
     <script src="/Edge-Vision/js/adicionar.js"></script>
 </body>
-</html>.
+</html>
