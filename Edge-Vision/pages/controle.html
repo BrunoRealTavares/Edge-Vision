@@ -1,31 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Monitoramento - Controle de Acesso</title>
-   <link rel="stylesheet" href="/css/controle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <header class="main-header">
-        <div class="welcome">
-            <h1>Olá!</h1>
-            <p>Bem-vindo ao painel de monitoramento</p>
-        </div>
-        <div class="profile">
-            <div class="profile-info">
-                <strong>Meu perfil</strong>
-                <span>Administrador</span>
-            </div>
-            <div class="profile-icon">
-                <i class="fas fa-user"></i>
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
+<div class="main-inner" style="width: 100%; box-sizing: border-box;">
+    <main style="margin: 0; width: 100%;">
         <section class="stats-grid">
             <div class="card">
                 <div>
@@ -61,26 +35,24 @@
                 <input type="text" id="searchInput" placeholder="Buscar por nome ou crachá...">
             </div>
 
-            <table id="accessTable">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Crachá</th>
-                        <th>Horário</th>
-                        <th>Data</th>
-                        <th>Local</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    </tbody>
-            </table>
+            <div style="overflow-x: auto; width: 100%;">
+                <table id="accessTable" style="min-width: 600px; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Crachá</th>
+                            <th>Horário</th>
+                            <th>Data</th>
+                            <th>Local</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        </tbody>
+                </table>
+            </div>
         </section>
     </main>
+</div>
 
-    <script src="/js/controle.js"></script>
-</body>
-</html>
-
-
-
+<script src="/Edge-Vision/Edge-Vision/js/sidebar.js"></script>

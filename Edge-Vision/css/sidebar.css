@@ -1,0 +1,315 @@
+/* ═══════════════════════════════════════════════════════
+   css/sidebar.css  —  Layout mestre + Sidebar + Topbar
+   Carregado POR ÚLTIMO no index.html.
+   Define TODAS as propriedades estruturais do app.
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Reset e base ─────────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'DM Sans', 'Inter', sans-serif;
+    background: var(--color-bg, #f8fafc);
+    color: var(--color-text, #0f172a);
+    line-height: 1.5;
+}
+
+/* ── Layout raiz ──────────────────────────────────────── */
+.app-layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ════════════════════════════════════════════════════════
+   SIDEBAR
+   ════════════════════════════════════════════════════════ */
+.sidebar {
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    background-color: #0f172a;
+    color: #fff;
+    border-right: 1px solid #1e293b;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 100;
+    /* garante que nenhum CSS legado quebre isso */
+    margin: 0;
+    padding: 0;
+    top: auto;
+    left: auto;
+    transform: none;
+}
+
+/* Textura sutil */
+.sidebar-texture {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Wrapper interno com padding */
+.sidebar-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 24px 16px;
+}
+
+/* Logo / Brand */
+.sidebar-brand {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #3b82f6;
+    letter-spacing: -0.03em;
+    padding: 0 8px;
+    margin-bottom: 32px;
+    flex-shrink: 0;
+}
+
+/* Nav */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.sidebar .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    transition: background 0.18s, color 0.18s;
+    /* anula herança de Inicio.css (height:50px, margin-bottom) */
+    height: auto;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.sidebar .nav-item svg,
+.sidebar .nav-item [data-lucide] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.sidebar .nav-item:hover {
+    background-color: #1e293b;
+    color: #f1f5f9;
+}
+
+.sidebar .nav-item.active {
+    background-color: #3b82f6;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(59,130,246,0.28);
+}
+
+/* Footer da sidebar */
+.sidebar-footer {
+    margin-top: auto;
+    flex-shrink: 0;
+    padding-top: 12px;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background-color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.sidebar .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.18s, color 0.18s;
+    height: auto;
+}
+
+.sidebar .logout-btn:hover {
+    background-color: rgba(239,68,68,0.1);
+    color: #f87171;
+}
+
+/* Alerta de status (câmera offline etc.) */
+.status-alert {
+    background-color: #2d1922;
+    border: 1px solid #dc3545;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+}
+
+/* ════════════════════════════════════════════════════════
+   ÁREA DE CONTEÚDO  (coluna direita)
+   .main-content = flex-col: [ .topbar ] + [ .page-body ]
+   ════════════════════════════════════════════════════════ */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-bg, #f8fafc);
+    /* anula margin-left / padding de arquivos legados */
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+}
+
+/* ── Topbar (injetada pelo sidebar.js) ────────────────── */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 0 32px;
+    min-height: 68px;
+    border-bottom: 1px solid #eaeef3;
+    flex-shrink: 0;
+    /* anula topbar legada do Inicio.css (position:fixed, height:46px) */
+    position: static;
+    width: auto;
+    z-index: auto;
+    margin: 0;
+    top: auto;
+    left: auto;
+    right: auto;
+}
+
+.topbar .user-welcome h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.topbar .user-welcome p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+}
+
+.topbar .user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.topbar .user-profile .avatar {
+    width: 38px;
+    height: 38px;
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+.topbar .user-profile:hover .avatar {
+    background-color: #0b5ed7;
+}
+
+/* ── Área com scroll (conteúdo da página) ─────────────── */
+.page-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 32px 40px;
+    background-color: var(--color-bg, #f8fafc);
+}
+
+/* Remove headers/topbars próprias das páginas —
+   cada página tinha o seu, agora é a .topbar global */
+.page-body .main-header,
+.page-body .welcome-bar,
+.page-body > .main-inner > header {
+    display: none;
+}
+
+/* Limita largura do conteúdo interno */
+.page-body .main-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ════════════════════════════════════════════════════════
+   RESPONSIVO
+   ════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .sidebar { width: 220px; min-width: 220px; }
+}
+
+@media (max-width: 768px) {
+    .sidebar { width: 200px; min-width: 200px; }
+    .page-body { padding: 24px 20px; }
+    .topbar { padding: 0 20px; }
+}
+
+@media (max-width: 600px) {
+    .app-layout { flex-direction: column; }
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        min-height: unset;
+    }
+    .sidebar-inner { padding: 12px 16px; }
+    .sidebar-nav { flex-direction: row; flex-wrap: wrap; }
+    .sidebar-brand { margin-bottom: 8px; }
+    .sidebar-footer { display: none; }
+    .sidebar-texture { display: none; }
+    .main-content { height: auto; flex: 1; }
+    .page-body { padding: 16px; }
+}

@@ -1,92 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EdgeSecurity - Dashboard</title>
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/Edge-Vision/css/adicionar.css">
-</head>
-<body>
+<div class="main-inner">
+    <div class="card top-card">
+        <div>
+            <h2>Adicionar Despachos</h2>
+            <p>Registre entradas, saídas e ocorrências</p>
+        </div>
+        <button class="btn" onclick="novoDespacho()">
+            <i class="fa fa-plus"></i> Novo Despacho
+        </button>
+    </div>
 
-    <aside class="sidebar" id="sidebar">
-        <div class="logo">
-            <i class="fa fa-shield-alt"></i> EdgeSecurity
-        </div>
-        <ul class="menu">
-            <li><i class="fa fa-home"></i> Início</li>
-            <li><i class="fa fa-cogs"></i> Funções principais</li>
-            <li><i class="fa fa-user-shield"></i> Controle de acesso</li>
-            <li class="active"><i class="fa fa-file-alt"></i> Adicionar despachos</li>
-            <li><i class="fa fa-chart-bar"></i> Relatórios</li>
-        </ul>
-        <div class="status">
-            ⚠ Status do monitoramento <br> <strong>Câmera 3 offline</strong>
-        </div>
-        <div class="logout">
-            <i class="fa fa-sign-out-alt"></i> Sair
-        </div>
-    </aside>
-
-    <main class="main" id="main">
-        <header>
-            <div class="header-left">
-                <button class="menu-btn" onclick="toggleMenu()">
-                    <i class="fa fa-bars"></i>
-                </button>
+    <div class="card">
+        <h3>Despachos Recentes</h3>
+        <div id="lista">
+            <div class="item">
                 <div>
-                    <h2>Olá!</h2>
-                    <p>Bem-vindo ao painel de monitoramento</p>
+                    <strong>João Silva</strong> <span class="tag">Entrada</span> <br>
+                    <small>29/04/2026 - Chegada pontual</small>
                 </div>
+                <span class="status aprovado">Aprovado</span>
             </div>
-            <div class="profile">
-                <i class="fa fa-user-circle" style="font-size: 1.5rem; color: #0056b3;"></i> 
-                <span>Meu perfil</span>
+            
+            <div class="item">
+                <div>
+                    <strong>Maria Santos</strong> <span class="tag saida">Saída</span> <br>
+                    <small>29/04/2026 - Término do expediente</small>
+                </div>
+                <span class="status aprovado">Aprovado</span>
             </div>
-        </header>
-
-        <div class="card top-card">
-            <div>
-                <h2>Adicionar Despachos</h2>
-                <p>Registre entradas, saídas e ocorrências</p>
-            </div>
-            <button class="btn" onclick="novoDespacho()">
-                <i class="fa fa-plus"></i> Novo Despacho
-            </button>
-        </div>
-
-        <div class="card">
-            <h3>Despachos Recentes</h3>
-            <div id="lista">
-                <div class="item">
-                    <div>
-                        <strong>João Silva</strong> <span class="tag">Entrada</span> <br>
-                        <small>29/04/2026 - Chegada pontual</small>
-                    </div>
-                    <span class="status aprovado">Aprovado</span>
+            
+            <div class="item">
+                <div>
+                    <strong>Pedro Costa</strong> <span class="tag">Entrada</span> <br>
+                    <small>29/04/2026 - Atraso justificado</small>
                 </div>
-                
-                <div class="item">
-                    <div>
-                        <strong>Maria Santos</strong> <span class="tag saida">Saída</span> <br>
-                        <small>29/04/2026 - Término do expediente</small>
-                    </div>
-                    <span class="status aprovado">Aprovado</span>
-                </div>
-                
-                <div class="item">
-                    <div>
-                        <strong>Pedro Costa</strong> <span class="tag">Entrada</span> <br>
-                        <small>29/04/2026 - Atraso justificado</small>
-                    </div>
-                    <span class="status pendente">Pendente</span>
-                </div>
+                <span class="status pendente">Pendente</span>
             </div>
         </div>
-    </main>
+    </div>
+</div>
 
-    <script src="/Edge-Vision/js/adicionar.js"></script>
-</body>
-</html>.
+<script src="/Edge-Vision/Edge-Vision/js/adicionar.js"></script>

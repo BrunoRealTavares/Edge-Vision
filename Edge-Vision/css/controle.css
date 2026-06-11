@@ -1,146 +1,151 @@
+/* ═══════════════════════════════════════════════════════
+   css/controle.css  —  Página Controle de Acesso
+   ═══════════════════════════════════════════════════════ */
 
-:root {
-    --bg-color: #f4f7f9;
-    --card-bg: #ffffff;
-    --primary-dark: #1e293b;
-    --text-main: #334155;
-    --text-muted: #64748b;
-    --green: #22c55e;
-    --red: #ef4444;
-    --blue: #3b82f6;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    margin: 0;
-    padding: 20px;
-}
-
-/* Header */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.welcome h1 { margin: 0; font-size: 24px; }
-.welcome p { margin: 5px 0; color: var(--text-muted); }
-
-.profile { display: flex; align-items: center; gap: 15px; }
-.profile-info { text-align: right; }
-.profile-icon {
-    background: var(--blue);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Cards */
+/* ── Cards de estatísticas ────────────────────────────── */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
-.card {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 12px;
+.stats-grid .card {
+    background: #fff;
+    padding: 20px 24px;
+    border-radius: var(--radius-lg, 14px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
+    border: 1px solid var(--color-border-lt, #f1f5f9);
 }
 
-.card p { color: var(--text-muted); margin: 0; font-size: 14px; }
-.card h2 { margin: 5px 0 0 0; font-size: 28px; }
+.stats-grid .card p {
+    color: var(--color-text-muted, #64748b);
+    margin: 0;
+    font-size: 13px;
+}
+
+.stats-grid .card h2 {
+    margin: 6px 0 0 0;
+    font-size: 28px;
+    color: var(--color-text, #0f172a);
+}
 
 .icon-circle {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
+    font-size: 18px;
 }
-.blue { background: #e0f2fe; color: var(--blue); }
-.green { background: #dcfce7; color: var(--green); }
-.red { background: #fee2e2; color: var(--red); }
+.icon-circle.blue   { background: #e0f2fe; color: #3b82f6; }
+.icon-circle.green  { background: #dcfce7; color: #22c55e; }
+.icon-circle.red    { background: #fee2e2; color: #ef4444; }
 
-/* Tabela */
+.text-green { color: #22c55e; }
+.text-red   { color: #ef4444; }
+
+/* ── Tabela de registros ──────────────────────────────── */
 .table-container {
-    background: var(--card-bg);
-    border-radius: 12px;
+    background: #fff;
+    border-radius: var(--radius-lg, 14px);
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.07));
 }
 
 .table-header {
-    background: var(--primary-dark);
-    color: white;
-    padding: 20px;
+    background: #1e293b;
+    color: #fff;
+    padding: 18px 24px;
 }
-.table-header h3 { margin: 0; font-size: 18px; }
-.table-header span { font-size: 13px; opacity: 0.7; }
+.table-header h3   { margin: 0; font-size: 16px; color: #fff; }
+.table-header span { font-size: 13px; opacity: 0.65; }
 
+/* Campo de busca */
 .search-bar {
-    padding: 20px;
+    padding: 16px 20px;
     position: relative;
 }
 
 .search-bar i {
     position: absolute;
-    left: 35px;
+    left: 34px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-muted);
+    color: var(--color-text-muted, #64748b);
+    font-size: 14px;
 }
 
 .search-bar input {
     width: 100%;
-    padding: 12px 12px 12px 45px;
-    border: 1px solid #e2e8f0;
+    padding: 11px 12px 11px 42px;
+    border: 1px solid var(--color-border, #e2e8f0);
     border-radius: 8px;
     background: #f8fafc;
-    box-sizing: border-box;
+    font-size: 14px;
+    color: var(--color-text, #0f172a);
+    outline: none;
+    transition: border-color 0.2s;
+}
+.search-bar input:focus {
+    border-color: #3b82f6;
 }
 
-table {
+/* Tabela */
+#accessTable {
     width: 100%;
     border-collapse: collapse;
 }
 
-th {
+#accessTable th {
     text-align: left;
-    padding: 15px 20px;
-    border-bottom: 2px solid #f1f5f9;
-    color: var(--text-muted);
-    font-size: 14px;
+    padding: 12px 20px;
+    border-bottom: 2px solid var(--color-border-lt, #f1f5f9);
+    color: var(--color-text-muted, #64748b);
+    font-size: 13px;
+    font-weight: 600;
 }
 
-td {
-    padding: 15px 20px;
-    border-bottom: 1px solid #f1f5f9;
+#accessTable td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--color-border-lt, #f1f5f9);
     font-size: 14px;
+    color: var(--color-text, #0f172a);
 }
 
-/* Status Badges */
+#accessTable tbody tr:last-child td { border-bottom: none; }
+
+/* Status badges */
 .status-pill {
-    padding: 5px 12px;
+    padding: 4px 12px;
     border-radius: 20px;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 700;
+    display: inline-block;
 }
-.status-pill.permitido { background: #dcfce7; color: var(--green); }
-.status-pill.negado { background: #fee2e2; color: var(--red); }
+.status-pill.permitido { background: #dcfce7; color: #16a34a; }
+.status-pill.negado    { background: #fee2e2; color: #dc2626; }
 
-.text-green { color: var(--green); }
-.text-red { color: var(--red); }
+.main-inner {
+    padding: 32px 40px;
+}
+
+@media (max-width: 768px) {
+    .main-inner {
+        padding: 20px;
+    }
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    #accessTable th:nth-child(3),
+    #accessTable td:nth-child(3),
+    #accessTable th:nth-child(4),
+    #accessTable td:nth-child(4) { display: none; }
+}
