@@ -1,155 +1,58 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Monitoramento</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/Edge-Vision/css/Inicio.css">
-</head>
-<body>
+<div class="page-body">
 
-    <div class="dashboard-container">
-        
-        <header class="main-header">
-            <div class="header-left">
-                <h1>Olá!</h1>
-                <p>Bem-vindo ao painel de monitoramento</p>
-            </div>
-            
-            <div class="header-right">
-                <button class="btn-audio-acessibilidade" id="btnOuvir" title="Ouvir dados do painel">
-                    <i class="bi bi-volume-up-fill" id="iconeAudio"></i> <span id="textoAudio">Ouvir Painel</span>
-                </button>
-
-                <div class="profile-menu" id="profileToggle">
-                    <div class="profile-info">
-                        <span class="profile-name">Meu perfil</span>
-                        <span class="profile-role">Administrador</span>
-                    </div>
-                    <div class="profile-avatar">
-                        <i class="bi bi-person-fill"></i>
-                    </div>
-                    <i class="bi bi-chevron-down dropdown-arrow"></i>
-                    
-                    <div class="profile-dropdown" id="profileDropdown">
-                        <a href="#"><i class="bi bi-gear"></i> Configurações</a>
-                        <a href="#"><i class="bi bi-shield-lock"></i> Segurança</a>
-                        <hr>
-                        <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Sair</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <main class="main-content" id="conteudo-leitura">
-            
-            <section class="camera-container">
-                <div class="camera-header">
-                    <div class="camera-title-block">
-                        <div class="camera-icon-wrapper">
-                            <i class="bi bi-camera-video"></i>
-                        </div>
-                        <div>
-                            <h2>Câmera Principal</h2>
-                            <p>Pátio - Área Externa</p>
-                        </div>
-                    </div>
-                    <div class="camera-controls">
-                        <span class="badge-live">
-                            <span class="live-dot"></span> AO VIVO
-                        </span>
-                        <button class="btn-control" id="btnPlayPause" title="Pausar/Play Transmissão">
-                            <i class="bi bi-play-fill" id="playIcon"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="video-feed-wrapper">
-                    <img src="/Edge-Vision/assets/Gemini_Generated_Image_3asvok3asvok3asv.png" alt="Feed da câmera externa" class="video-stream" id="videoStream">
-                    <div class="video-overlay-fallback" id="videoFallback">
-                        <i class="bi bi-camera-video-off"></i>
-                        <p>Transmissão Pausada</p>
-                    </div>
-                    <div class="video-timestamp" id="liveTimestamp">11/06/2026 - 08:28:43</div>
-                </div>
-            </section>
-
-            <section class="employees-container">
-                <div class="section-title-block">
-                    <h3>Funcionários no expediente</h3>
-                    <p>Horários de entrada e saída</p>
-                </div>
-                
-                <div class="employees-grid">
-                    <div class="employee-card">
-                        <div class="card-row">
-                            <div class="card-col">
-                                <span class="card-label">Horário</span>
-                                <span class="card-value">12:15</span>
-                            </div>
-                            <div class="card-col text-right">
-                                <span class="card-label">Data</span>
-                                <span class="card-value-alt">W 22/11</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="employee-card">
-                        <div class="card-row">
-                            <div class="card-col">
-                                <span class="card-label">Horário</span>
-                                <span class="card-value">12:15</span>
-                            </div>
-                            <div class="card-col text-right">
-                                <span class="card-label">Data</span>
-                                <span class="card-value-alt">W 22/11</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="employee-card">
-                        <div class="card-row">
-                            <div class="card-col">
-                                <span class="card-label">Horário</span>
-                                <span class="card-value">12:15</span>
-                            </div>
-                            <div class="card-col text-right">
-                                <span class="card-label">Data</span>
-                                <span class="card-value-alt">W 22/11</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="employee-card">
-                        <div class="card-row">
-                            <div class="card-col">
-                                <span class="card-label">Horário</span>
-                                <span class="card-value">12:15</span>
-                            </div>
-                            <div class="card-col text-right">
-                                <span class="card-label">Data</span>
-                                <span class="card-value-alt">W 22/11</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-    </div>
-
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
+    <section class="camera-card">
+      <div class="camera-header">
+        <div class="camera-title">
+          <div class="camera-icon">☐</div>
+          <div>
+            <h3>Câmera Principal</h3>
+            <span>Pátio - Área Externa</span>
+          </div>
         </div>
-    </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
+        <div class="camera-actions">
+          <div class="live-badge">● AO VIVO</div>
+          <button class="play-btn">▶</button>
+        </div>
+      </div>
 
-    <script src="/Edge-Vision/js/Inicio.js"></script>
-</body>
-</html>
+      <div class="camera-image-wrapper">
+        <img src="/Edge-Vision/Edge-Vision/assets/Gemini_Generated_Image_3asvok3asvok3asv.png" alt="Camera" class="camera-image" />
+        <div class="camera-overlay-title">
+          ADVANCED VISION-BASED COLLISION AVOIDANCE | ZONES OF SHADOW MONITORING
+        </div>
+        <div class="camera-log">
+          <div class="log-title">SAFE-ZONE INCIDENT LOG</div>
+          <div class="log-item critical">10:14:22 | ZONE 04 SHADOW | W-015 ↔ F-BYD-102 | CRITICAL ALERT</div>
+          <div class="log-item passive">10:09:55 | ZONE 02 OPEN | W-009 ↔ F-BYD-111 | PASSIVE ALERT</div>
+        </div>
+        <div class="timestamp">29/04/2026 - 14:35:22</div>
+      </div>
+    </section>
+
+    <section class="employee-card">
+      <div class="employee-header">
+        <h3>Funcionários no expediente</h3>
+        <p>Horários de entrada e saída</p>
+      </div>
+
+      <div class="employee-grid">
+        <div class="employee-item">
+          <div class="employee-labels"><span>Horário</span><span>Data</span></div>
+          <div class="employee-values"><h4>12:15</h4><h5>W 22/11</h5></div>
+        </div>
+        <div class="employee-item">
+          <div class="employee-labels"><span>Horário</span><span>Data</span></div>
+          <div class="employee-values"><h4>12:15</h4><h5>W 22/11</h5></div>
+        </div>
+        <div class="employee-item">
+          <div class="employee-labels"><span>Horário</span><span>Data</span></div>
+          <div class="employee-values"><h4>12:15</h4><h5>W 22/11</h5></div>
+        </div>
+        <div class="employee-item">
+          <div class="employee-labels"><span>Horário</span><span>Data</span></div>
+          <div class="employee-values"><h4>12:15</h4><h5>W 22/11</h5></div>
+        </div>
+      </div>
+    </section>
+
+</div>

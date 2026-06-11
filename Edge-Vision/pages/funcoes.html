@@ -1,101 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EdgeSecurity</title>
-  <link rel="stylesheet" href="/css/funcoes.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-</head>
-<body>
+<div class="main-inner">
 
-  <div class="app-layout">
-
-    <!-- ── Sidebar ── -->
-    <aside class="sidebar">
-      <div class="sidebar-texture"></div>
-      <div class="sidebar-inner">
-
-        <!-- Brand -->
-        <div class="sidebar-brand">
-          <span>EdgeSecurity</span>
-        </div>
-
-        <!-- Nav -->
-        <nav class="sidebar-nav">
-          <button class="nav-item" data-id="inicio">
-            <i data-lucide="home"></i>
-            Início
-          </button>
-          <button class="nav-item active" data-id="funcoes">
-            <i data-lucide="settings-2"></i>
-            Funções principais
-            <span class="nav-dot"></span>
-          </button>
-          <button class="nav-item" data-id="controle">
-            <i data-lucide="users"></i>
-            Controle de acesso
-          </button>
-          <button class="nav-item" data-id="despachos">
-            <i data-lucide="file-plus"></i>
-            Adicionar despachos
-          </button>
-          <button class="nav-item" data-id="relatorios">
-            <i data-lucide="bar-chart-2"></i>
-            Relatórios
-          </button>
-        </nav>
-
-        <!-- Footer -->
-        <div class="sidebar-footer">
-          <div class="sidebar-divider"></div>
-          <button class="logout-btn">
-            <i data-lucide="log-out"></i>
-            Sair
-          </button>
-        </div>
-
-      </div>
-    </aside>
-
-    <!-- ── Main Content ── -->
-    <main class="main-content">
-      <div class="main-inner">
-
-        <!-- Header -->
-        <div class="content-header">
-          <h1>Funções Principais</h1>
-          <p>Acesso rápido às principais funcionalidades do sistema</p>
-        </div>
-
-        <!-- Cards Grid -->
-        <div class="cards-grid" id="cardsGrid"></div>
-
-        <!-- Quick Actions -->
-        <div class="quick-actions">
-          <h2>Ações Rápidas</h2>
-          <div class="actions-row">
-            <button class="action-btn btn-blue">
-              <i data-lucide="plus"></i>
-              Adicionar Nova Câmera
-            </button>
-            <button class="action-btn btn-green">
-              <i data-lucide="user-plus"></i>
-              Criar Novo Usuário
-            </button>
-            <button class="action-btn btn-purple">
-              <i data-lucide="download"></i>
-              Exportar Relatório
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </main>
+  <div class="content-header">
+    <h1>Funções Principais</h1>
+    <p>Acesso rápido às principais funcionalidades do sistema</p>
   </div>
 
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <script src="/js/funcoes.js"></script>
-</body>
-</html>
+  <div class="cards-grid" id="cardsGrid"></div>
+
+  <div class="quick-actions">
+    <h2>Ações Rápidas</h2>
+    <div class="actions-row">
+      <button class="action-btn btn-blue">
+        <i data-lucide="plus"></i>
+        Adicionar Nova Câmera
+      </button>
+      <button class="action-btn btn-green">
+        <i data-lucide="user-plus"></i>
+        Criar Novo Usuário
+      </button>
+      <button class="action-btn btn-purple">
+        <i data-lucide="download"></i>
+        Exportar Relatório
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script src="/Edge-Vision/Edge-Vision/js/sidebar.js"></script>

@@ -1,52 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Acesso</title>
-
-    <link rel="stylesheet" href="/Edge-Vision/css/controle.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-
-<body>
-
-<div class="container">
-
-    <main class="content">
-
-        <header class="topbar">
-
-            <div>
-                <h1>Olá!</h1>
-                <p>Bem-vindo ao painel de monitoramento</p>
-            </div>
-
-            <!-- 🔊 BOTÕES DA WEB SPEECH API (DIREITA) -->
-            <div class="api-buttons">
-                <button class="btn-access" onclick="lerPagina()">🔊 Ler página</button>
-                <button class="btn-access" onclick="pararLeitura()">⛔ Parar leitura</button>
-            </div>
-
-            <div class="profile">
-
-                <div class="profile-info">
-                    <span>Meu perfil</span>
-                    <small>Administrador</small>
-                </div>
-
-                <div class="avatar">
-                    <i class="fas fa-user"></i>
-                </div>
-
-            </div>
-
-        </header>
-
-        <section class="cards">
-
+<div class="main-inner" style="width: 100%; box-sizing: border-box;">
+    <main style="margin: 0; width: 100%;">
+        <section class="stats-grid">
             <div class="card">
                 <div>
                     <p>Total de Acessos</p>
@@ -94,39 +48,25 @@
 
             </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Crachá</th>
-                        <th>Horário</th>
-                        <th>Data</th>
-                        <th>Local</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-
-                <tbody id="tableBody"></tbody>
-            </table>
-
+            <div style="overflow-x: auto; width: 100%;">
+                <table id="accessTable" style="min-width: 600px; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Crachá</th>
+                            <th>Horário</th>
+                            <th>Data</th>
+                            <th>Local</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        </tbody>
+                </table>
+            </div>
         </section>
 
     </main>
-
 </div>
 
-<script src="/Edge-Vision/js/controle.js"></script>
-<div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-    </div>
-</div>
-
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-
-</body>
-</html>
+<script src="/Edge-Vision/Edge-Vision/js/sidebar.js"></script>

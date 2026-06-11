@@ -1,300 +1,242 @@
-/* ==========================================================================
-   1. VARIÁVEIS DO SISTEMA & CONFIGURAÇÕES GERAIS
-   ========================================================================== */
-:root {
-    --bg-body: #f4f6f9;       /* Fundo cinza-claro que destaca as caixas brancas */
-    --bg-sidebar: #1e293b;    /* Tom azul escuro premium */
-    --bg-active: #2563eb;     /* Azul royal marcante para itens ativos */
-    --bg-card: #ffffff;       /* Fundo branco puro para os blocos */
-    
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
-    --text-white: #ffffff;
-    
-    /* Cores das Tags de Tipo (Entrada/Saída) */
-    --entrada-bg: #e0f2fe;
-    --entrada-text: #0369a1;
-    --saida-bg: #e0e7ff;
-    --saida-text: #4338ca;
-    
-    /* Cores dos Status */
-    --aprovado-bg: #dcfce7;
-    --aprovado-text: #15803d;
-    --pendente-bg: #fef9c3;
-    --pendente-text: #a16207;
+/* ═══════════════════════════════════════════════════════
+   css/relatorios.css  —  Página Relatórios
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Cards KPI ────────────────────────────────────────── */
+/* Usa o grid do Bootstrap (.row + .col-*), apenas estiliza os cards */
+.kpi-card {
+    background: #fff;
+    padding: 22px;
+    border-radius: var(--radius-lg, 14px);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
+    border: 1px solid var(--color-border-lt, #f1f5f9);
+    height: 100%;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-body {
-    background-color: var(--bg-body);
-    color: var(--text-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden; /* Evita barra de rolagem horizontal indesejada */
-}
-
-/* ==========================================================================
-   2. HEADER / TOPBAR (100% DA LARGURA DA TELA)
-   ========================================================================== */
-main header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #eaeef3 !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-    
-    padding: 20px 40px;
-    margin-bottom: 40px;
-    width: 100vw;               /* Força o header a ocupar toda a largura do monitor */
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.menu-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: var(--text-dark);
+.kpi-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    margin-bottom: 14px;
+    font-size: 17px;
 }
+.kpi-icon.blue   { background: #e0f2fe; color: #0284c7; }
+.kpi-icon.purple { background: #f3e8ff; color: #7c3aed; }
+.kpi-icon.green  { background: #dcfce7; color: #16a34a; }
+.kpi-icon.orange { background: #ffedd5; color: #ea580c; }
 
-.welcome-text h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text-dark);
-    line-height: 1.2;
-}
-
-.welcome-text p {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-top: 2px;
-}
-
-/* Perfil no lado direito */
-.profile.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-}
-
-.profile-text {
-    text-align: right;
-}
-
-.user-name {
-    display: block;
+.kpi-label {
     font-size: 13px;
+    color: var(--color-text-muted, #64748b);
+    margin-bottom: 6px;
+}
+
+.kpi-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.kpi-trend { font-size: 12px; font-weight: 600; }
+.kpi-trend.up      { color: #16a34a; }
+.kpi-trend.neutral { color: var(--color-text-muted, #64748b); font-weight: 400; }
+
+/* ── Painel de filtros ────────────────────────────────── */
+.filters-panel {
+    background: #fff;
+    border-radius: var(--radius-lg, 14px);
+    padding: 24px 28px;
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
+    border: 1px solid var(--color-border-lt, #f1f5f9);
+    margin-bottom: 24px;
+}
+
+.filters-panel .panel-title {
+    font-size: 15px;
     font-weight: 700;
-    color: var(--text-dark);
-    line-height: 1.2;
-}
-
-.user-role {
-    display: block;
-    font-size: 11px;
-    color: var(--text-muted);
-}
-
-.avatar {
-    width: 36px;
-    height: 36px;
-    background-color: var(--bg-active);
-    color: var(--text-white);
-    border-radius: 50%;
+    color: #0f172a;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 16px;
+    gap: 8px;
 }
 
-.chevron {
-    font-size: 11px;
-    color: var(--text-muted);
+/* Inputs e selects dos filtros */
+.filter-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-muted, #64748b);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
-/* ==========================================================================
-   3. CONTAINER CONTEÚDO CENTRALIZADO (CARDS ABAIXO DO HEADER)
-   ========================================================================== */
-.main {
+.filter-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: 8px;
+    background: #f8fafc;
+    font-size: 14px;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.filter-input:focus { border-color: #3b82f6; }
+
+/* Botões de ação */
+.btn-gerar {
+    background: var(--color-primary, #2563eb);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.btn-gerar:hover { background: #1d4ed8; }
+
+.btn-pdf {
+    background: #16a34a;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.btn-pdf:hover { background: #15803d; }
+
+.btn-excel {
+    background: #334155;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.btn-excel:hover { background: #1e293b; }
+
+/* ── Seção do gráfico ─────────────────────────────────── */
+.chart-section {
+    background: #fff;
+    border-radius: var(--radius-lg, 14px);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
+    border: 1px solid var(--color-border-lt, #f1f5f9);
+}
+
+.chart-header {
+    background: #1e293b;
+    padding: 18px 24px;
+}
+.chart-header h3 { color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+.chart-header p  { font-size: 13px; color: #94a3b8; }
+
+.chart-body {
+    padding: 24px;
+    background: #fff;
+}
+
+/* Gráfico de barras manual */
+.chart-bars-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 180px;
+    border-bottom: 2px solid var(--color-border-lt, #f1f5f9);
+    padding-bottom: 0;
+    position: relative;
+    gap: 12px;
+}
+
+.chart-col {
     flex: 1;
     display: flex;
     flex-direction: column;
-    max-width: 1200px;      /* Largura limite para os cards internos ficarem elegantes */
-    width: 100%;
-    padding: 0 20px 40px 20px; /* Margem interna para o conteúdo não colar na tela em monitores menores */
-}
-
-/* ==========================================================================
-   4. CARD SUPERIOR (ADICIONAR DESPACHOS)
-   ========================================================================== */
-.card.top-card {
-    background-color: var(--bg-card);
-    border-radius: 12px;
-    padding: 24px 32px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    margin-bottom: 24px;
-    border: 1px solid #eaeef3;
-}
-
-.card.top-card h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text-dark);
-}
-
-.card.top-card p {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-top: 2px;
-}
-
-/* Botão azul de Novo Despacho */
-.card.top-card .btn {
-    background-color: var(--bg-active);
-    color: var(--text-white);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
+    gap: 8px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s ease;
+    position: relative;
 }
 
-.card.top-card .btn:hover {
-    background-color: #1d4ed8;
-}
-
-/* ==========================================================================
-   5. SEÇÃO DE LISTAGEM DE RECENTES
-   ========================================================================== */
-.list-section {
-    background-color: #1e293b; /* Cabeçalho escuro do card de listagem */
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    border: 1px solid #eaeef3;
-}
-
-.list-header {
-    padding: 20px 24px;
-    color: var(--text-white);
-}
-
-.list-header h3 {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.list-header p {
-    font-size: 13px;
-    color: #94a3b8;
-    margin-top: 2px;
-}
-
-.list-container {
-    background-color: var(--bg-card);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* Linhas internas da listagem */
-.item {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 16px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bg-card);
-}
-
-.item-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    color: var(--text-dark);
-}
-
-/* Tags internas de Entrada e Saída */
-.tag {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 12px;
-}
-
-.tag-entrada {
-    background-color: var(--entrada-bg);
-    color: var(--entrada-text);
-}
-
-.tag-saida {
-    background-color: var(--saida-bg);
-    color: var(--saida-text);
-}
-
-.item small {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--text-muted);
-    margin: 6px 0;
-}
-
-.item .desc {
-    font-size: 13px;
-    color: var(--text-muted);
-}
-
-/* Badges Laterais (Aprovado / Pendente) */
-.badge-status {
+/* Tooltip */
+.chart-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: #fff;
     font-size: 12px;
     font-weight: 600;
-    padding: 4px 12px;
+    padding: 5px 10px;
     border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+.chart-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1e293b;
 }
 
-.status-aprovado {
-    background-color: var(--aprovado-bg);
-    color: var(--aprovado-text);
+.chart-col.active .chart-tooltip { opacity: 1; }
+
+.chart-bar {
+    width: 100%;
+    background: #3b82f6;
+    border-radius: 6px 6px 0 0;
+    transition: background 0.2s;
+}
+.chart-col:hover .chart-bar { background: #2563eb; }
+
+.chart-col span {
+    font-size: 13px;
+    color: var(--color-text-muted, #64748b);
+    font-weight: 500;
 }
 
-.status-pendente {
-    background-color: var(--pendente-bg);
-    color: var(--pendente-text);
+.main-inner {
+    padding: 32px 40px;
 }
+
+@media (max-width: 768px) {
+    .main-inner {
+        padding: 20px;
+    }
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+    .filters-panel .row { gap: 12px; }
+}
+

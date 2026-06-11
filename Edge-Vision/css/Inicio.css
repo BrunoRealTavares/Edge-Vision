@@ -1,535 +1,192 @@
-/* ==========================================================================
-   CONFIGURAÇÕES GERAIS E RESETS
-   ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* ═══════════════════════════════════════════════════════
+   css/Inicio.css  —  Estilos exclusivos da página Início
+   NÃO define: body, *, html, .sidebar, .main-content,
+   .topbar, .nav-item, .logout-btn, .app-layout
+   ═══════════════════════════════════════════════════════ */
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-
-
-body {
-    background-color: #f4f6f9;
-    color: #1e293b;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Container do Layout */
-.dashboard-container {
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 0 40px 0;
-}
-
-
-/* ==========================================================================
-   HEADER
-   ========================================================================== */
-.main-header {
-    background-color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-
-.header-left h1 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 4px;
-}
-
-
-.header-left p {
-    font-size: 14px;
-    color: #64748b;
-}
-
-
-.header-right {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 24px; /* Espaçamento entre o botão de áudio e o menu de perfil */
-}
-
-
-.profile-menu {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease;
-}
-
-
-.profile-menu:hover {
-    background-color: #f1f5f9;
-}
-
-
-.profile-info {
-    text-align: right;
-}
-
-
-.profile-name {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: #1e293b;
-}
-
-
-.profile-role {
-    display: block;
-    font-size: 12px;
-    color: #64748b;
-}
-
-
-.profile-avatar {
-    width: 40px;
-    height: 40px;
-    background-color: #2563eb;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 20px;
-}
-
-
-.dropdown-arrow {
-    font-size: 14px;
-    color: #64748b;
-    transition: transform 0.2s ease;
-}
-
-
-/* Menu Dropdown Animado */
-.profile-dropdown {
-    position: absolute;
-    top: 110%;
-    right: 0;
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    display: none;
-    flex-direction: column;
-    padding: 8px 0;
-    z-index: 100;
-}
-
-
-.profile-dropdown.active {
-    display: flex;
-}
-
-
-.profile-dropdown a {
-    padding: 10px 16px;
-    font-size: 14px;
-    color: #334155;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background-color 0.15s ease;
-}
-
-
-.profile-dropdown a:hover {
-    background-color: #f8fafc;
-}
-
-
-.profile-dropdown hr {
-    border: 0;
-    border-top: 1px solid #e2e8f0;
-    margin: 6px 0;
-}
-
-
-.profile-dropdown a.logout {
-    color: #ef4444;
-}
-
-
-/* NOVO ESTILO: Estilização do Botão de Acessibilidade por Voz */
-.btn-acessibilidade-audio {
-    background-color: #2563eb;
-    color: #ffffff;
-    border: none;
-    padding: 10px 18px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-
-.btn-acessibilidade-audio:hover {
-    background-color: #1d4ed8;
-}
-
-
-.btn-acessibilidade-audio:active {
-    transform: scale(0.98);
-}
-
-
-/* Estado de execução (quando a voz do navegador estiver ativa) */
-.btn-acessibilidade-audio.executando {
-    background-color: #ef4444;
-}
-
-
-/* ==========================================================================
-   CONTEÚDO E CONTEXTO DO PAINEL
-   ========================================================================== */
-.main-content {
-    padding: 30px 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-
-/* SEÇÃO DA CÂMERA */
-.camera-container {
-    background-color: #151f32;
-    border-radius: 16px;
+/* ── Seção da câmera ──────────────────────────────────── */
+.camera-card {
+    background: #fff;
+    border-radius: var(--radius-xl, 18px);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg, 0 10px 30px rgba(15,23,42,0.08));
+    margin-bottom: 28px;
 }
-
 
 .camera-header {
-    padding: 20px 24px;
+    height: 80px;
+    background: #172949;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    background-color: #1a263e;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0 24px;
 }
 
 
-.camera-title-block {
+.camera-title {
     display: flex;
-    align-items: center;
-    gap: 16px;
+    align-items: flex-start;
+    gap: 14px;
 }
 
 
-.camera-icon-wrapper {
-    color: #ffffff;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.camera-icon { color: #fff; font-size: 22px; margin-top: 2px; }
 
+.camera-title h3 { color: #fff; font-size: 18px; margin-bottom: 4px; }
+.camera-title span { color: #8fb3ff; font-size: 14px; }
 
-.camera-title-block h2 {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 600;
-}
+.camera-actions { display: flex; align-items: center; gap: 12px; }
 
-
-.camera-title-block p {
-    color: #94a3b8;
-    font-size: 13px;
-    margin-top: 2px;
-}
-
-
-.camera-controls {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-
-.badge-live {
-    background-color: #00e676;
-    color: #ffffff;
-    font-size: 11px;
+.live-badge {
+    background: #16c75c;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
     font-weight: 700;
-    padding: 5px 12px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    letter-spacing: 0.5px;
 }
 
-
-.live-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
-}
-
-
-.btn-control {
-    background-color: rgba(255, 255, 255, 0.1);
+.play-btn {
+    width: 40px;
+    height: 40px;
     border: none;
-    color: #ffffff;
-    width: 36px;
-    height: 36px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
     cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-size: 16px;
 }
 
-
-.btn-control:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-
-.btn-control:active {
-    transform: scale(0.95);
-}
-
-
-/* ÁREA DO STREAM DE VÍDEO */
-.video-feed-wrapper {
+/* Wrapper da imagem da câmera */
+.camera-image-wrapper {
     position: relative;
-    width: 100%;
-    background-color: #0b111e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 560px;
+    overflow: hidden;
 }
 
-
-.video-stream {
+.camera-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.3s ease;
 }
 
-
-.video-stream.paused {
-    opacity: 0.15;
-    filter: blur(5px);
-}
-
-
-.video-overlay-fallback {
+.camera-overlay-title {
     position: absolute;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    color: #64748b;
-    font-size: 16px;
+    top: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
 }
 
-
-.video-overlay-fallback i {
-    font-size: 48px;
-}
-
-
-.video-timestamp {
+.camera-log {
     position: absolute;
-    bottom: 20px;
-    left: 24px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #ffffff;
-    padding: 6px 14px;
-    border-radius: 6px;
+    top: 160px;
+    right: 80px;
+    width: 310px;
+    background: rgba(16,24,39,0.72);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.log-title {
+    color: #fff;
+    font-weight: 700;
     font-size: 13px;
-    font-family: monospace;
-    letter-spacing: 0.5px;
+    margin-bottom: 12px;
 }
 
-
-/* ==========================================================================
-   SEÇÃO FUNCIONÁRIOS NO EXPEDIENTE
-   ========================================================================== */
-.employees-container {
-    background-color: #1a263e;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+.log-item {
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
 }
+.log-item.critical { background: rgba(239,68,68,0.38); }
+.log-item.passive  { background: rgba(245,158,11,0.30); }
 
-
-.section-title-block {
-    margin-bottom: 20px;
-}
-
-
-.section-title-block h3 {
-    color: #ffffff;
-    font-size: 16px;
+.timestamp {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 13px;
     font-weight: 600;
 }
 
-
-.section-title-block p {
-    color: #94a3b8;
-    font-size: 13px;
-    margin-top: 2px;
+/* ── Card de funcionários ─────────────────────────────── */
+.employee-card {
+    background: #fff;
+    border-radius: var(--radius-xl, 18px);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg, 0 10px 30px rgba(15,23,42,0.08));
 }
 
+.employee-header {
+    background: #172949;
+    padding: 18px 24px;
+}
+.employee-header h3 { color: #fff; font-size: 17px; margin-bottom: 4px; }
+.employee-header p  { color: #8fb3ff; font-size: 13px; }
 
-.employees-grid {
+.employee-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
+    padding: 20px;
 }
 
-
-.employee-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 16px 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-
-.employee-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-
-.card-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.card-col {
+.employee-item {
+    background: #f8fafc;
+    border: 1px solid #dbe3eb;
+    border-radius: 14px;
+    padding: 16px;
+    min-height: 88px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: space-between;
+    transition: var(--transition, all 0.2s);
 }
 
-
-.text-right {
-    text-align: right;
+.employee-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #64748b;
+    font-size: 13px;
 }
 
-
-.card-label {
-    font-size: 11px;
-    color: #94a3b8;
-    text-transform: capitalize;
+.employee-values {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
+.employee-values h4 { font-size: 16px; color: #0f172a; }
+.employee-values h5 { font-size: 14px; font-weight: 600; color: #1e3a8a; }
 
-
-.card-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: #0f172a;
-}
-
-
-.card-value-alt {
-    font-size: 14px;
-    font-weight: 500;
-    color: #334155;
-}
-
-
-/* ==========================================================================
-   ANIMAÇÕES E RESPONSIVIDADE
-   ========================================================================== */
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.4; }
-    100% { opacity: 1; }
-}
-
-
+/* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 1200px) {
-    .employees-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .employee-grid { grid-template-columns: repeat(2, 1fr); }
+    .camera-log { right: 24px; }
 }
-
-
-@media (max-width: 768px) {
-    .main-header {
-        padding: 15px 20px;
-    }
-    .main-content {
-        padding: 20px;
-    }
-    .header-left h1 {
-        font-size: 20px;
-    }
-    .profile-name {
-        display: none;
-    }
-    .employees-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media (max-width: 900px) {
+    .camera-image-wrapper { height: 420px; }
+    .camera-header { height: auto; padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
+    .camera-log { width: 260px; top: 100px; }
 }
-
-
-@media (max-width: 480px) {
-    .main-header {
-        flex-direction: row;
-        align-items: center;
-    }
-    .camera-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    .camera-controls {
-        width: 100%;
-        justify-content: space-between;
-    }
-    .employees-grid {
-        grid-template-columns: 1fr;
-    }
-    .video-timestamp {
-        font-size: 11px;
-        bottom: 10px;
-        left: 12px;
-        padding: 4px 8px;
-    }
-    #textoAudio {
-        display: none; /* Em telas muito pequenas, oculta o texto mantendo apenas o ícone de som */
-    }
+@media (max-width: 600px) {
+    .employee-grid { grid-template-columns: 1fr; }
+    .camera-image-wrapper { height: 300px; }
+    .camera-log { width: 220px; padding: 10px; top: 70px; right: 10px; }
+    .camera-overlay-title { font-size: 11px; padding: 8px 10px; }
+    .timestamp { font-size: 11px; padding: 8px 12px; }
 }
