@@ -10,7 +10,6 @@ const accessData = [
 const tableBody = document.getElementById("tableBody");
 const searchInput = document.getElementById("searchInput");
 
-
 function renderTable(data) {
 
     tableBody.innerHTML = "";
@@ -42,6 +41,7 @@ function renderTable(data) {
         data.filter(i => i[5] === "Negado").length;
 }
 
+/* 🔍 BUSCA */
 searchInput.addEventListener("input", e => {
 
     const termo = e.target.value.toLowerCase();
@@ -54,15 +54,22 @@ searchInput.addEventListener("input", e => {
     renderTable(filtrados);
 });
 
+/* 🔊 WEB SPEECH API */
+let utterance;
+
 function lerPagina() {
     const texto = document.body.innerText;
 
-    const fala = new SpeechSynthesisUtterance(texto);
+    utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = "pt-BR";
+    utterance.rate = 1;
 
-    fala.lang = "pt-BR";
-
-    speechSynthesis.speak(fala);
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utterance);
 }
 
+function pararLeitura() {
+    speechSynthesis.cancel();
+}
 
 renderTable(accessData);

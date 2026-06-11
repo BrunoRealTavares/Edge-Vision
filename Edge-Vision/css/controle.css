@@ -17,44 +17,63 @@
     --header: #17233d;
 }
 
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* BODY */
 body {
     font-family: "Segoe UI", sans-serif;
     background: var(--bg);
 }
 
+/* CONTAINER */
 .content {
     width: 100%;
 }
 
-/* Topbar */
-
+/* TOPBAR */
 .topbar {
     background: white;
-
-    padding: 20px 40px;
-
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.topbar h1 {
-    color: var(--dark);
-    font-size: 36px;
+/* BOTÕES API (DIREITA) */
+.api-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    align-items: center;
 }
 
-.topbar p {
-    color: var(--gray);
+.btn-access {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
+.btn-access:hover {
+    background: #1e40af;
+}
+
+/* PERFIL */
 .profile {
     display: flex;
     align-items: center;
@@ -77,42 +96,36 @@ body {
 .avatar {
     width: 42px;
     height: 42px;
-
     border-radius: 50%;
-
     background: var(--blue);
-
     color: white;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Cards */
-
+/* CARDS */
 .cards {
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
     gap: 20px;
-
     padding: 30px 40px;
 }
 
 .card {
     background: white;
-
     padding: 25px;
-
     border-radius: 16px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
 }
 
 .card p {
@@ -124,20 +137,14 @@ body {
     font-size: 40px;
 }
 
-.green {
-    color: var(--green);
-}
+.green { color: var(--green); }
+.red { color: var(--red); }
 
-.red {
-    color: var(--red);
-}
-
+/* ICONES */
 .icon {
     width: 55px;
     height: 55px;
-
     border-radius: 50%;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,25 +165,18 @@ body {
     color: var(--red);
 }
 
-/* Tabela */
-
+/* TABELA */
 .table-container {
     background: white;
-
     margin: 0 40px 40px;
-
     border-radius: 16px;
-
     overflow: hidden;
-
     box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
 .table-header {
     background: var(--header);
-
     color: white;
-
     padding: 25px;
 }
 
@@ -184,45 +184,36 @@ body {
     color: #cbd5e1;
 }
 
+/* BUSCA */
 .search-box {
     padding: 20px;
-
     position: relative;
 }
 
 .search-box i {
     position: absolute;
-
     top: 50%;
     left: 35px;
-
     transform: translateY(-50%);
-
     color: var(--gray);
 }
 
 .search-box input {
     width: 100%;
-
     padding: 14px 14px 14px 45px;
-
     border: 1px solid var(--border);
-
     border-radius: 12px;
-
     outline: none;
 }
 
+/* TABELA */
 table {
     width: 100%;
-
     border-collapse: collapse;
 }
 
-th,
-td {
+th, td {
     padding: 18px 30px;
-
     text-align: left;
 }
 
@@ -234,11 +225,10 @@ tbody tr {
     border-top: 1px solid var(--border);
 }
 
+/* STATUS */
 .status {
     padding: 6px 14px;
-
     border-radius: 999px;
-
     font-size: 12px;
     font-weight: bold;
 }
