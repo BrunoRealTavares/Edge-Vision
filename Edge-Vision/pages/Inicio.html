@@ -9,21 +9,18 @@
 </head>
 <body>
 
-
     <div class="dashboard-container">
-       
+        
         <header class="main-header">
             <div class="header-left">
                 <h1>Olá!</h1>
                 <p>Bem-vindo ao painel de monitoramento</p>
             </div>
-           
+            
             <div class="header-right">
-                <button class="btn-acessibilidade-audio" id="btnOuvir" title="Ouvir conteúdo do painel">
-                    <i class="bi bi-volume-up-fill" id="iconeAudio"></i>
-                    <span id="textoAudio">Ouvir Conteúdo</span>
+                <button class="btn-audio-acessibilidade" id="btnOuvir" title="Ouvir dados do painel">
+                    <i class="bi bi-volume-up-fill" id="iconeAudio"></i> <span id="textoAudio">Ouvir Painel</span>
                 </button>
-
 
                 <div class="profile-menu" id="profileToggle">
                     <div class="profile-info">
@@ -34,7 +31,7 @@
                         <i class="bi bi-person-fill"></i>
                     </div>
                     <i class="bi bi-chevron-down dropdown-arrow"></i>
-                   
+                    
                     <div class="profile-dropdown" id="profileDropdown">
                         <a href="#"><i class="bi bi-gear"></i> Configurações</a>
                         <a href="#"><i class="bi bi-shield-lock"></i> Segurança</a>
@@ -45,9 +42,8 @@
             </div>
         </header>
 
-
         <main class="main-content" id="conteudo-leitura">
-           
+            
             <section class="camera-container">
                 <div class="camera-header">
                     <div class="camera-title-block">
@@ -68,24 +64,23 @@
                         </button>
                     </div>
                 </div>
-               
+                
                 <div class="video-feed-wrapper">
-                    <img src="/Edge-Vision/assets/Gemini_Generated_Image_3asvok3asvok3asv.png" alt="Feed da câmera externa - Sistema Avançado de Evasão de Colisão" class="video-stream" id="videoStream">
+                    <img src="/Edge-Vision/assets/Gemini_Generated_Image_3asvok3asvok3asv.png" alt="Feed da câmera externa" class="video-stream" id="videoStream">
                     <div class="video-overlay-fallback" id="videoFallback">
                         <i class="bi bi-camera-video-off"></i>
                         <p>Transmissão Pausada</p>
                     </div>
-                    <div class="video-timestamp" id="liveTimestamp">29/04/2026 - 14:35:22</div>
+                    <div class="video-timestamp" id="liveTimestamp">11/06/2026 - 08:28:43</div>
                 </div>
             </section>
-
 
             <section class="employees-container">
                 <div class="section-title-block">
                     <h3>Funcionários no expediente</h3>
                     <p>Horários de entrada e saída</p>
                 </div>
-               
+                
                 <div class="employees-grid">
                     <div class="employee-card">
                         <div class="card-row">
@@ -99,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                   
+                    
                     <div class="employee-card">
                         <div class="card-row">
                             <div class="card-col">
@@ -112,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="employee-card">
                         <div class="card-row">
                             <div class="card-col">
@@ -125,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="employee-card">
                         <div class="card-row">
                             <div class="card-col">
@@ -141,10 +136,8 @@
                 </div>
             </section>
 
-
         </main>
     </div>
-
 
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
@@ -152,12 +145,11 @@
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
-
-
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+
     <script src="/Edge-Vision/js/Inicio.js"></script>
 </body>
 </html>
