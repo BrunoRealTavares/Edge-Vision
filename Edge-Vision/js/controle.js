@@ -10,6 +10,7 @@ const accessData = [
 const tableBody = document.getElementById("tableBody");
 const searchInput = document.getElementById("searchInput");
 
+
 function renderTable(data) {
 
     tableBody.innerHTML = "";
