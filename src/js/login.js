@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("logado", "true");
 
                 // 🚀 REDIRECIONAMENTO AUTOMÁTICO PARA A TELA PRINCIPAL (INDEX COM A SIDEBAR)
-                window.location.href = "index.html";
+                window.location.href = "src/pages/index.html";
 
             } else {
                 // Mensagem de alerta caso erre os dados

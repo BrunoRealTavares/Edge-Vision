@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EdgeSecurity</title>
+    <title>EdgeSecurity - Login</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-
 
     <div class="container">
        
@@ -27,7 +26,6 @@
                 <i class="fa-solid fa-bolt"></i> SISTEMA ONLINE
             </div>
 
-
             <div class="features">
                 <div class="feature-card">
                     <i class="fa-solid fa-shield-virus"></i>
@@ -44,38 +42,34 @@
             </div>
         </div>
 
-
         <div class="login-section">
             <div class="login-panel">
                 <div class="panel-header">
                     <div class="header-titles">
-                        <h2>Acesso Seguro</h2>
+                        <h2>Acesso Secure</h2>
                         <p>Autenticação multifator habilitada</p>
                     </div>
                 </div>
 
-
-                <form action="Inicio.html" method="GET">
+                <form id="loginForm">
                     <div class="input-group">
                         <label class="input-label">
                             <i class="fa-regular fa-user"></i> Identificação do Usuário
                         </label>
                         <div class="input-wrapper">
-                            <input type="text" placeholder="Digite seu ID ou e-mail" required>
+                            <input type="text" id="username" placeholder="Digite seu ID ou e-mail" required autocomplete="username">
                         </div>
                     </div>
-
 
                     <div class="input-group">
                         <label class="input-label">
                             <i class="fa-solid fa-lock"></i> Senha de Acesso
                         </label>
                         <div class="input-wrapper">
-                            <input type="password" placeholder="Digite sua senha" required>
-                            <i class="fa-regular fa-eye eye-icon"></i>
+                            <input type="password" id="password" placeholder="Digite sua senha" required autocomplete="current-password">
+                            <i class="fa-regular fa-eye eye-icon" id="togglePasswordIcon"></i>
                         </div>
                     </div>
-
 
                     <div class="panel-options">
                         <label class="checkbox-group">
@@ -86,38 +80,35 @@
                         </a>
                     </div>
 
-
                     <button type="submit" class="submit-btn">
                         <i class="fa-solid fa-shield"></i> Iniciar sessão
                     </button>
                 </form>
-
 
                 <div class="panel-footer">
                     <a href="#" class="help-link">Ajuda</a>
                 </div>
             </div>
 
-
             <div class="system-footer">
                 EdgeSecurity © 2026 | Todos os acessos são monitorados<br>
             </div>
         </div>
 
-
     </div>
 
-      <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
+    <script src="/js/login.js"></script>
 
 </body>
 </html>

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let arquivo = idPagina.toLowerCase();
         if (arquivo === "inicio") arquivo = "Inicio";
 
-        fetch(`pages/${arquivo}.html`)
+        fetch(`../pages/${arquivo}.html`)
             .then(response => {
                 if (!response.ok) throw new Error(`Arquivo não encontrado: ${arquivo}.html`);
                 return response.text();
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 ⚠ Erro ao carregar "${arquivo}.html".
                             </p>
                             <small style="color:#64748b;">
-                                Verifique se o arquivo existe em <code>pages/${arquivo}.html</code>
+                                Verifique se o arquivo existe em <code>/pages/${arquivo}.html</code>
                                 e se o projeto está rodando via Live Server (não abrindo o arquivo direto).
                             </small>
                         </div>`;
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("click", (e) => {
     if (e.target.closest("#btnSair") || e.target.closest(".logout-btn")) {
         localStorage.removeItem("logado");
-        window.location.href = "login.html";
+        window.location.href = "../../index.html";
     }
 });
 
