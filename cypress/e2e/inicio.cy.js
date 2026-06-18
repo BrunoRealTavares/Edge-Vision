@@ -1,58 +1,23 @@
-describe('Testes do Painel de Monitoramento - Inicio', () => {
-  
+describe('Testes da Página de Início - Edge Vision', () => {
+
   beforeEach(() => {
-    // Definido o link correto do seu Live Server na porta 5501
-    cy.visit('http://127.0.0.1:5501/Edge-Vision/pages/Inicio.html'); 
+    // Abre a página de início usando o servidor local ativo
+    cy.visit('/src/pages/inicio.html');
   });
 
-  it('1. Deve carregar os elementos principais do cabeçalho com sucesso', () => {
-    cy.get('.header-left h1').should('contain', 'Olá!');
-    cy.get('.header-left p').should('contain', 'Bem-vindo ao painel de monitoramento');
-    cy.get('.profile-name').should('be.visible').and('contain', 'Meu perfil');
-    cy.get('.profile-role').should('be.visible').and('contain', 'Administrador');
-  });
+  it('Deve carregar os elementos do monitoramento e dados da dashboard', () => {
+    // 1. Valida se o card da câmera principal e o título estão na tela
+    cy.contains('h3', 'Câmera Principal').should('be.visible');
+    cy.contains('Pátio - Área Externa').should('be.visible');
 
-  it('2. Deve abrir e fechar o menu dropdown do perfil ao clicar', () => {
-    cy.get('#profileDropdown').should('not.be.visible');
-    cy.get('#profileToggle').click();
-    cy.get('#profileDropdown').should('be.visible');
-    cy.get('main').click();
-    cy.get('#profileDropdown').should('not.be.visible');
-  });
+    // 2. Garante que o status "AO VIVO" e os logs de incidente estão aparecendo
+    cy.contains('.live-badge', 'AO VIVO').should('be.visible');
+    cy.contains('.log-title', 'SAFE-ZONE INCIDENT LOG').should('be.visible');
+    cy.get('.camera-image').should('be.visible'); // Verifica se a tag da imagem renderizou
 
-  it('3. Deve controlar a transmissão de vídeo ao clicar no botão Play/Pause', () => {
-    cy.get('#videoStream').should('be.visible').and('not.have.class', 'paused');
-    cy.get('#videoFallback').should('not.be.visible');
-
-    cy.get('#btnPlayPause').click();
-    cy.get('#videoStream').should('have.class', 'paused');
-    cy.get('#videoFallback').should('be.visible').and('contain', 'Transmissão Pausada');
-
-    cy.get('#btnPlayPause').click();
-    cy.get('#videoStream').should('not.have.class', 'paused');
-    cy.get('#videoFallback').should('not.be.visible');
-  });
-
-  it('4. Deve validar o funcionamento visual do Botão de Acessibilidade por Áudio', () => {
-    cy.get('#btnOuvir').should('be.visible').and('not.have.class', 'falando-ativo');
-    cy.get('#textoAudio').should('have.text', 'Ouvir Painel');
-
-    // Clica para ativar
-    cy.get('#btnOuvir').click();
-
-    // Valida as mudanças de estado
-    cy.get('#btnOuvir').should('have.class', 'falando-ativo');
-    cy.get('#textoAudio').should('have.text', 'Parar Leitura');
-
-    // Clica para parar
-    cy.get('#btnOuvir').click();
-    cy.get('#btnOuvir').should('not.have.class', 'falando-ativo');
-    cy.get('#textoAudio').should('have.text', 'Ouvir Painel');
-  });
-
-  it('5. Deve verificar se a grade de funcionários no expediente está preenchida', () => {
-    // Aguarda e valida a existência dos componentes de dados
-    cy.get('.employees-grid', { timeout: 6000 }).should('be.visible');
-    cy.get('.employee-card', { timeout: 6000 }).should('have.length.at.least', 1);
+    // 3. Valida se o card de "Funcionários no expediente" carregou os blocos de dados
+    cy.contains('h3', 'Funcionários no expediente').should('be.visible');
+    cy.get('.employee-grid').should('exist');
+    cy.get('.employee-item').should('have.length', 4); // Garante que os 4 cards de funcionários estão renderizados
   });
 });

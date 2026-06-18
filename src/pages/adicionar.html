@@ -1,42 +1,84 @@
 <div class="main-inner">
-    <div class="card top-card">
-        <div>
+    <div class="top-header-block">
+        <div class="title-desc">
             <h2>Adicionar Despachos</h2>
             <p>Registre entradas, saídas e ocorrências</p>
         </div>
-        <button class="btn" onclick="novoDespacho()">
+        <button class="btn-novo-despacho" onclick="novoDespacho()">
             <i class="fa fa-plus"></i> Novo Despacho
         </button>
     </div>
 
-    <div class="card">
-        <h3>Despachos Recentes</h3>
-        <div id="lista">
-            <div class="item">
-                <div>
-                    <strong>João Silva</strong> <span class="tag">Entrada</span> <br>
-                    <small>29/04/2026 - Chegada pontual</small>
+    <div class="despachos-container-box">
+        <div class="dark-panel-header">
+            <h3>Despachos Recentes</h3>
+            <p>Últimos registros de movimentação</p>
+        </div>
+
+        <div class="despachos-body-list">
+            <div class="row-despacho-card">
+                <div class="left-content-side">
+                    <div class="top-line-info">
+                        <span class="employee-name">João Silva</span>
+                        <span class="badge-tag tag-blue">Entrada</span>
+                    </div>
+                    <div class="bottom-line-info">
+                        <span class="date-text"><i class="far fa-calendar-alt"></i> 29/04/2026</span>
+                        <span class="obs-text">Chegada pontual</span>
+                    </div>
                 </div>
-                <span class="status aprovado">Aprovado</span>
+                <div class="right-content-side">
+                    <span class="status-indicator-pill pill-green">Aprovado</span>
+                </div>
             </div>
-            
-            <div class="item">
-                <div>
-                    <strong>Maria Santos</strong> <span class="tag saida">Saída</span> <br>
-                    <small>29/04/2026 - Término do expediente</small>
+
+            <div class="row-despacho-card">
+                <div class="left-content-side">
+                    <div class="top-line-info">
+                        <span class="employee-name">Maria Santos</span>
+                        <span class="badge-tag tag-sky">Saída</span>
+                    </div>
+                    <div class="bottom-line-info">
+                        <span class="date-text"><i class="far fa-calendar-alt"></i> 29/04/2026</span>
+                        <span class="obs-text">Término do expediente</span>
+                    </div>
                 </div>
-                <span class="status aprovado">Aprovado</span>
+                <div class="right-content-side">
+                    <span class="status-indicator-pill pill-green">Aprovado</span>
+                </div>
             </div>
-            
-            <div class="item">
-                <div>
-                    <strong>Pedro Costa</strong> <span class="tag">Entrada</span> <br>
-                    <small>29/04/2026 - Atraso justificado</small>
+
+            <div class="row-despacho-card">
+                <div class="left-content-side">
+                    <div class="top-line-info">
+                        <span class="employee-name">Pedro Costa</span>
+                        <span class="badge-tag tag-blue">Entrada</span>
+                    </div>
+                    <div class="bottom-line-info">
+                        <span class="date-text"><i class="far fa-calendar-alt"></i> 29/04/2026</span>
+                        <span class="obs-text">Atraso justificado</span>
+                    </div>
                 </div>
-                <span class="status pendente">Pendente</span>
+                <div class="right-content-side">
+                    <span class="status-indicator-pill pill-yellow">Pendente</span>
+                </div>
+            </div>
+
+            <div class="row-despacho-card">
+                <div class="left-content-side">
+                    <div class="top-line-info">
+                        <span class="employee-name">Ana Oliveira</span>
+                        <span class="badge-tag tag-sky">Saída</span>
+                    </div>
+                    <div class="bottom-line-info">
+                        <span class="date-text"><i class="far fa-calendar-alt"></i> 29/04/2026</span>
+                        <span class="obs-text">Saída antecipada</span>
+                    </div>
+                </div>
+                <div class="right-content-side">
+                    <span class="status-indicator-pill pill-green">Aprovado</span>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<script src="/js/adicionar.js"></script>

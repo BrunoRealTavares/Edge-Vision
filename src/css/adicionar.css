@@ -1,242 +1,184 @@
-/* ═══════════════════════════════════════════════════════
-   css/relatorios.css  —  Página Relatórios
-   ═══════════════════════════════════════════════════════ */
-
-/* ── Cards KPI ────────────────────────────────────────── */
-/* Usa o grid do Bootstrap (.row + .col-*), apenas estiliza os cards */
-.kpi-card {
-    background: #fff;
-    padding: 22px;
-    border-radius: var(--radius-lg, 14px);
-    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
-    border: 1px solid var(--color-border-lt, #f1f5f9);
-    height: 100%;
-}
-
-.kpi-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+/* Layout da Área de Conteúdo */
+.main-inner {
+    padding: 30px;
+    background-color: #f3f4f6;
+    /* Fundo cinza claro igual do preview */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 14px;
-    font-size: 17px;
-}
-.kpi-icon.blue   { background: #e0f2fe; color: #0284c7; }
-.kpi-icon.purple { background: #f3e8ff; color: #7c3aed; }
-.kpi-icon.green  { background: #dcfce7; color: #16a34a; }
-.kpi-icon.orange { background: #ffedd5; color: #ea580c; }
-
-.kpi-label {
-    font-size: 13px;
-    color: var(--color-text-muted, #64748b);
-    margin-bottom: 6px;
-}
-
-.kpi-value {
-    font-size: 28px;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 8px;
-    line-height: 1;
-}
-
-.kpi-trend { font-size: 12px; font-weight: 600; }
-.kpi-trend.up      { color: #16a34a; }
-.kpi-trend.neutral { color: var(--color-text-muted, #64748b); font-weight: 400; }
-
-/* ── Painel de filtros ────────────────────────────────── */
-.filters-panel {
-    background: #fff;
-    border-radius: var(--radius-lg, 14px);
-    padding: 24px 28px;
-    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
-    border: 1px solid var(--color-border-lt, #f1f5f9);
-    margin-bottom: 24px;
-}
-
-.filters-panel .panel-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Inputs e selects dos filtros */
-.filter-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-muted, #64748b);
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-
-.filter-input {
+    flex-direction: column;
+    gap: 25px;
     width: 100%;
-    padding: 10px 14px;
-    border: 1px solid var(--color-border, #e2e8f0);
-    border-radius: 8px;
-    background: #f8fafc;
-    font-size: 14px;
-    color: #0f172a;
-    outline: none;
-    transition: border-color 0.2s;
-}
-.filter-input:focus { border-color: #3b82f6; }
-
-/* Botões de ação */
-.btn-gerar {
-    background: var(--color-primary, #2563eb);
-    color: #fff;
-    border: none;
-    padding: 10px 22px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s;
-}
-.btn-gerar:hover { background: #1d4ed8; }
-
-.btn-pdf {
-    background: #16a34a;
-    color: #fff;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s;
-}
-.btn-pdf:hover { background: #15803d; }
-
-.btn-excel {
-    background: #334155;
-    color: #fff;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s;
-}
-.btn-excel:hover { background: #1e293b; }
-
-/* ── Seção do gráfico ─────────────────────────────────── */
-.chart-section {
-    background: #fff;
-    border-radius: var(--radius-lg, 14px);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
-    border: 1px solid var(--color-border-lt, #f1f5f9);
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.chart-header {
-    background: #1e293b;
-    padding: 18px 24px;
-}
-.chart-header h3 { color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 3px; }
-.chart-header p  { font-size: 13px; color: #94a3b8; }
-
-.chart-body {
-    padding: 24px;
-    background: #fff;
-}
-
-/* Gráfico de barras manual */
-.chart-bars-wrapper {
+/* Cabeçalho superior */
+.top-header-block {
+    background: #ffffff;
+    padding: 24px 30px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    height: 180px;
-    border-bottom: 2px solid var(--color-border-lt, #f1f5f9);
-    padding-bottom: 0;
-    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.title-desc h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 6px 0;
+}
+
+.title-desc p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Botão Azul Novo Despacho */
+.btn-novo-despacho {
+    background-color: #1d4ed8;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.btn-novo-despacho:hover {
+    background-color: #1e40af;
+}
+
+/* Box Principal dos Despachos */
+.despachos-container-box {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+/* Faixa Escura do Cabeçalho */
+.dark-panel-header {
+    background-color: #1e293b;
+    padding: 20px 24px;
+}
+
+.dark-panel-header h3 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.dark-panel-header p {
+    color: #94a3b8;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Lista interna */
+.despachos-body-list {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Cada linha de item (Card Branco) */
+.row-despacho-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.row-despacho-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Lado esquerdo (Textos) */
+.left-content-side {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.top-line-info {
+    display: flex;
+    align-items: center;
     gap: 12px;
 }
 
-.chart-col {
-    flex: 1;
+.employee-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Badges redondos pequenos (Entrada/Saída) */
+.badge-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 30px;
+}
+
+.tag-blue {
+    background-color: #eff6ff;
+    color: #3b82f6;
+}
+
+.tag-sky {
+    background-color: #f0f9ff;
+    color: #0284c7;
+}
+
+/* Linha inferior de datas e textos */
+.bottom-line-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    position: relative;
-}
-
-/* Tooltip */
-.chart-tooltip {
-    position: absolute;
-    bottom: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #1e293b;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 6px;
-    white-space: nowrap;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.15s;
-}
-.chart-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid transparent;
-    border-top-color: #1e293b;
-}
-
-.chart-col.active .chart-tooltip { opacity: 1; }
-
-.chart-bar {
-    width: 100%;
-    background: #3b82f6;
-    border-radius: 6px 6px 0 0;
-    transition: background 0.2s;
-}
-.chart-col:hover .chart-bar { background: #2563eb; }
-
-.chart-col span {
+    gap: 4px;
     font-size: 13px;
-    color: var(--color-text-muted, #64748b);
-    font-weight: 500;
+    color: #64748b;
 }
 
-.main-inner {
-    padding: 32px 40px;
+.date-text i {
+    margin-right: 4px;
+    color: #94a3b8;
 }
 
-@media (max-width: 768px) {
-    .main-inner {
-        padding: 20px;
-    }
+.obs-text {
+    color: #64748b;
 }
 
-/* ── Responsive ───────────────────────────────────────── */
-@media (max-width: 768px) {
-    .filters-panel .row { gap: 12px; }
+/* Lado direito (Pills de aprovação) */
+.status-indicator-pill {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 30px;
+    text-align: center;
 }
 
+.pill-green {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.pill-yellow {
+    background-color: #fef9c3;
+    color: #ca8a04;
+}
